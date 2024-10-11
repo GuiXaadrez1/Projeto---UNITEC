@@ -28,8 +28,6 @@ CREATE TABLE forum(
 	id_forum SERIAL PRIMARY KEY,
 	id_admin INT NOT NULL,
 	id_semestre INT NOT NULL,
-	comentario VARCHAR(255),
-	data_comentario TIMESTAMP DEFAULT NOW(),
 	FOREIGN KEY (id_admin) REFERENCES administrador(id_admin),
 	FOREIGN KEY (id_semestre) REFERENCES semestre(id_semestre)
 );
@@ -143,6 +141,22 @@ CREATE TABLE atividade(
 	FOREIGN KEY (id_professor) REFERENCES professor(id_professor)
 );
 
+CREATE TABLE comentario (
+    id_comentario SERIAL PRIMARY KEY,
+    id_forum INT NOT NULL,
+    id_aluno INT,
+    id_professor INT,
+    conteudo TEXT NOT NULL,
+    data_comentario TIMESTAMP DEFAULT NOW(),
+    FOREIGN KEY (id_forum) REFERENCES forum(id_forum),
+    FOREIGN KEY (id_aluno) REFERENCES aluno(id_aluno),
+    FOREIGN KEY (id_professor) REFERENCES professor(id_professor),
+    CHECK (
+        (id_aluno IS NOT NULL AND id_professor IS NULL) OR
+        (id_professor IS NOT NULL AND id_aluno IS NULL)
+    )
+);
+
 CREATE TABLE login_admin(
 	id_login SERIAL PRIMARY KEY,
 	id_admin INT NOT NULL,
@@ -206,6 +220,7 @@ INSERT INTO pessoa (nome, telefone, email, cpf, rg) VALUES
 ('Leonardo Silva', '61992987654', 'leonardo.silva@gmail.com', '57890123425', '567892'),
 ('Guilherme Henrique','61991543213','guix1@gmail.com','12345678912','123456');
 
+/*
 SELECT * FROM pessoa;
 SELECT * FROM pessoa WHERE nome = 'Guilherme Henrique';
 
@@ -220,6 +235,7 @@ ALTER SEQUENCE pessoa_id_pessoa_seq RESTART WITH 1;
 
 -- Opcional: Verificar o novo valor da sequência
 SELECT nextval('pessoa_id_pessoa_seq');
+*/
 
 INSERT INTO administrador (id_pessoa, senha_hash)
 SELECT id_pessoa, md5('123457')
@@ -231,10 +247,10 @@ CREATE VIEW dados_admin AS
 	INNER JOIN administrador AS ad 
 	ON (p.id_pessoa = ad.id_pessoa);
 
-DROP VIEW dados_admin;
+-- DROP VIEW dados_admin;
 
 -- DEELETANDO TODOS OS DADOS DA TABELA PESSOA
-DELETE FROM pessoa;
+-- DELETE FROM pessoa;
 
 -- Verificar o último valor da sequência da PRIMARY KEY
 SELECT LAST_VALUE FROM pessoa_id_pessoa_seq;
@@ -269,3 +285,24 @@ CREATE VIEW dados_admin AS
 
 UPDATE administrador SET senha_hash = md5('123456') WHERE id_admin = 1;
 */
+
+SELECT * FROM administrador;
+SELECT * FROM semestre;
+
+
+/*INSERINDO o ADMIN QUE CRIOU O SEMESTRE*/
+INSERT INTO semestre(id_admin,nome_semestre)
+	SELECT id_admin,'Primeiro Semestre'
+		FROM administrador
+			WHERE id_admin = 1;
+
+/*
+--DELETE FROM semestre corrigindo sequencia da primary key;
+ALTER SEQUENCE semestre_id_semestre_seq  RESTART WITH 1;
+SELECT LAST_VALUE FROM semestre_id_semestre_seq;
+*/
+
+-- INSERINDO Forum, semestre que ele pertence e o administrador que criou ele
+INSERT INTO forum (id_admin,id_semestre)
+	SELECT ad.id_admin, s.id_semestre FROM administrador AS ad
+	INNER JOIN semestre AS s ON(ad.id_admin = s.id_admin);
