@@ -17,10 +17,11 @@ mydb = conf_conexao()
 
 # @ é um decorador que define as rotas (caminhos na URL) da aplicação.
 @app.route('/')
+def raiz():
+    return '<h1><strong>Você está na raiz<strong><h1>'
+@app.route('/index')
 def index():
-    return 'HELLOW WOLD'
-
-
+    return render_template('/index.html')
 
 # Ativando o modo desenvolvedor e iniciando o servidor local
 if(__name__ ==  '__main__'):
