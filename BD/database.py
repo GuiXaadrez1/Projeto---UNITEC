@@ -15,7 +15,7 @@ def conf_conexao():
         print("Conexão com PostgreSQL estabelecida com sucesso")
 
         # Executar uma consulta
-        cursor.execute("SELECT * FROM pessoa")
+        #cursor.execute("SELECT * FROM pessoa")
         records = cursor.fetchall()  # Pega todas as linhas da tabela
 
         # Pega o nome das colunas da tabela
@@ -39,4 +39,4 @@ def conf_conexao():
             print("Conexão com PostgreSQL fechada")
 
 # Chama a função
-conexao()
+#conexao()
