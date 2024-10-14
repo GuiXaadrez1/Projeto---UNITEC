@@ -1,7 +1,7 @@
 import psycopg2
 import pprint
 
-def conexao():
+def conf_conexao():
     try:
         connection = psycopg2.connect(
             user="postgres",
