@@ -1,0 +1,64 @@
+O que é uma blueprint? 
+
+É uma forma de organizar, estruturar melhor a arquitetura da nossa aplicação web
+minimalista, mas quando você tem muitas rotas, handlers e outros elementos a 
+organização pode virar um desafio.
+
+O blueprint permite que você divida sua aplicação em partes menores e modulares, 
+facilitando a manutenção e a escalabilidade. Basicamente, ele age como um "sub-aplicativo"
+que contém suas próprias rotas, templates e lógica, mas ainda faz parte da aplicação principal.
+
+Por exemplo, imagine uma aplicação de e-commerce. Em vez de ter todas as rotas
+(como /produtos, /carrinho, /checkout, etc.) no mesmo arquivo, você pode organizar assim:
+
+Um blueprint para o módulo de produtos (rotas relacionadas a produtos)
+Um blueprint para o módulo de usuários (rotas relacionadas a cadastro/login de usuários)
+Um blueprint para o carrinho de compras.
+
+Aqui está uma explicação passo a passo de como funciona.
+
+No seu diretório de aplicação Flask, você cria um arquivo separado para cada módulo. 
+Exemplo:
+
+/meu_projeto
+    /produtos
+        __init__.py # criador de módulo
+        rotas.py
+    app.py
+
+No arquivo rotas.py dentro da pasta produtos, você define o blueprint:
+
+    # produtos/rotas.py
+    from flask import Blueprint
+
+        # Criando o blueprint
+        produtos_bp = Blueprint('produtos', __name__)
+
+        # Definindo uma rota dentro desse blueprint
+        @produtos_bp.route('/produtos')
+        def listar_produtos():
+            return "Lista de produtos"
+
+Agora, no arquivo app.py, você importa e registra o blueprint criado.
+
+    # app.py
+    from flask import Flask
+    from produtos.rotas import produtos_bp  # Importa o blueprint
+
+        app = Flask(__name__)
+
+        # Registra o blueprint na aplicação
+        app.register_blueprint(produtos_bp)
+
+        if __name__ == "__main__":
+            app.run(debug=True)
+    
+Ao fazer isso, sua aplicação Flask agora reconhece as rotas do blueprint de produtos. 
+Quando você acessa /produtos, a função listar_produtos será chamada.
+
+Você também pode adicionar um prefixo às rotas de um blueprint. 
+Por exemplo, ao registrar o blueprint, você pode fazer isso:
+
+    app.register_blueprint(produtos_bp, url_prefix='/loja')
+
+Agora, a rota /produtos será acessada via /loja/produtos.
