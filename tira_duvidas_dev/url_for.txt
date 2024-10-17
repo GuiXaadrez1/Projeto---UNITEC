@@ -1,0 +1,4 @@
+  * URL_FOR NO FLASK (construtor de enpoint)
+
+ {{url_for(links/rotas/botões/funções_javascript/scripts_jacascript)}} 
+ no jinja2 é uma forma de fazer ligação entre rotas para o servidor web flask ler
