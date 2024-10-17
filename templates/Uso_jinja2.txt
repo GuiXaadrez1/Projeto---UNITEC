@@ -1,0 +1,55 @@
+O módulo Flask vem junto com o jinja2!
+
+O Jinja2 é um motor de template (template engine) 
+utilizado principalmente para renderizar conteúdo dinâmico em aplicações web, 
+sendo muito popular em frameworks como Flask e Django.
+
+Ele permite que você combine código HTML com lógica de programação, 
+como loops (for),
+condicionais (if), 
+e variáveis, para gerar páginas web dinâmicas. 
+O Jinja2 usa uma sintaxe específica (muito parecida com Python) 
+que é processada no servidor e o resultado final é o HTML a ser exibido no navegador do usuário.
+
+    VEJA O QUE PODEMOS FAZER COM ELE!
+
+1- Inserção de variáveis: Você pode inserir valores de variáveis Python diretamente no HTML.
+   
+    <p>Olá, {{ nome }}!</p>
+
+    {{<nome_variável_de_contexto_do_python>}} = inserção de variável sempre com = {{}}
+
+2- Lógica de controle: Como loops e condicionais.
+
+{% if user %}
+    <p>Olá, {{ user.nome }}!</p>
+{% else %}
+    <p>Por favor, faça login.</p>
+{% endif %}
+
+{% for linhas in linhas %}
+     {{}}
+{% endfor%}
+
+{% lógica de controle a ser utilizada %} => sempre com {% %}
+
+3- Comentários
+
+{# Olá, isso é um comentári #} => sempre com {# #}
+
+4- Filtros: Permitem modificar o conteúdo de variáveis, 
+como no exemplo abaixo, onde a função capitalize torna a primeira letra maiúscula.
+
+{{ nome | capitalize }} => sempre assim {{ variavel | filtro }}
+ 
+Essa barra => | é um operador que passa o valor da variável pelo filtro.
+
+Ela basicamente pega o valor que está à esquerda e aplica o filtro que está à direita. 
+Você pode inclusive encadear filtros, aplicando múltiplos em sequência.
+
+o filtro são funções nativas ou não do python que pode nos ajudar a filtrar ou manipular
+dados, valores, variáveis.
+
+O Jinja2 é bastante eficiente e flexível, 
+facilitando a integração entre código backend e a interface frontend. 
+No contexto de aplicações Flask, ele é o padrão para renderizar templates.
