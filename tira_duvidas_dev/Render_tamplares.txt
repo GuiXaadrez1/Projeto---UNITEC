@@ -1,0 +1,6 @@
+Render_tamplate o que é?
+- Basiacamente é um módulo nativo da biblioteca Flask que vai renderizar páginas html 
+que estão na pasta templates.
+- Ele permite o servidor web Flask conseguir enchergar e ler as páginas html
+- Serve também para a pasta static, esta página irá comportar arquivos estéticos
+ e estáticos do contéudo que tem no html, como css, imagem, códigos javascript

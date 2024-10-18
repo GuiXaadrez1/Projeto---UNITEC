@@ -1,15 +1,14 @@
 # importando módulos flask, suas bibliotecas e nossos módulos
 from flask import Flask
 ''' 
-render_template: é usado para renderizar páginas HTML do diretório 'templates'.
 request: é utilizado para obter dados de requisições HTTP (como formulários e parâmetros).
-jsonify: converte dados Python para o formato JSON, retornando como resposta na API.
 BD: módulo que criei para o nosso banco de dados
 '''
 from flask import render_template, request, jsonify
 
 from BD.database import conf_conexao
 
+# Importando diretamente na pasta routes as variáveis que comportam as blueprints!
 from routes.login import login_route
 from routes.recuperar_pw import recuperar_pw_route
 from routes.home  import home_route

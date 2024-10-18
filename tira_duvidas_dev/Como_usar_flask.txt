@@ -1,4 +1,4 @@
- Colocando o flask para funcionar
+ Colocando o flask para funcionar:
 
     - installar o pythom com path integrado 
     - intallar o flask usando o comando: pip install flask

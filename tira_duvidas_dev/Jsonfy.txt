@@ -1,0 +1,4 @@
+O que é o Jsonfy? 
+- É um módulo nativo do Flask que converte dados Python para o formato JSON. 
+Retornando como resposta na API.
+- ele básicamente transforma um lista de discionário em um arquivo JSON
