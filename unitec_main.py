@@ -10,18 +10,25 @@ from flask import render_template, request, jsonify
 
 from BD.database import conf_conexao
 
+from routes.login import login_route
+from routes.recuperar_pw import recuperar_pw_route
+from routes.home  import home_route
+
 # inicializando flask
 app = Flask(__name__)
-# "mydb: Estabelece a conexão com o banco de dados utilizando a função conf_conexao()."
+# "mydb: Estabelece a conexão(local) com o banco de dados(local) utilizando a função conf_conexao()."
 mydb = conf_conexao()
 
 # @ é um decorador que define as rotas (caminhos na URL) da aplicação.
 @app.route('/')
 def raiz():
     return '<h1><strong>Você está na raiz<strong><h1>'
-@app.route('/index')
-def index():
-    return render_template('/index.html')
+
+# Registrando os Blueprint no arquivo principal
+
+app.register_blueprint(login_route)
+app.register_blueprint(recuperar_pw_route)
+app.register_blueprint(home_route)
 
 # Ativando o modo desenvolvedor e iniciando o servidor local
 if(__name__ ==  '__main__'):
