@@ -1,0 +1,158 @@
+1- você pode acessar este link para poder visualizar e ler a Diagramação no dbdiagram.io:
+
+https://dbdiagram.io/d/67166b9997a66db9a3bc69c7
+
+2- você pode visualizar a imagem da Diagramação gerada pelo dbdiagram.io que está em PDF no Diagramação ERD UNITEC:
+
+3- Ou último caso, pode usar o código abaixo para o dbdiagram.io gerá-lo: 
+
+Table pessoa {
+	id_pessoa SERIAL [pk]
+	nome VARCHAR(45) [not null]
+	telefone VARCHAR(45) [not null]
+	email VARCHAR(75) [not null]
+	cpf CHAR(11) [unique, not null]
+	rg CHAR(20) [unique, not null]
+}
+
+Table administrador {
+	id_admin SERIAL [pk]
+	id_pessoa INT [not null, ref: > pessoa.id_pessoa]
+	senha_hash VARCHAR(255) [unique, not null]
+	nivel_acesso VARCHAR(20) [default: 'Maximo', note: 'Check constraint: Maximo']
+}
+
+Table semestre {
+	id_semestre SERIAL [pk]
+	id_admin INT [not null, ref: > administrador.id_admin]
+	data_semestre TIMESTAMP [default: `NOW()`]
+	nome_semestre VARCHAR(20)
+}
+
+Table forum {
+	id_forum SERIAL [pk]
+	id_admin INT [not null, ref: > administrador.id_admin]
+	id_semestre INT [not null, ref: > semestre.id_semestre]
+}
+
+Table curso {
+	id_curso SERIAL [pk]
+	id_admin INT [not null, ref: > administrador.id_admin]
+	id_semestre INT [not null, ref: > semestre.id_semestre]
+	nome_curso VARCHAR(45)
+}
+
+Table turma {
+	id_turma SERIAL [pk]
+	id_admin INT [not null, ref: > administrador.id_admin]
+	id_semestre INT [not null, ref: > semestre.id_semestre]
+	id_curso INT [not null, ref: > curso.id_curso]
+	nome_turma VARCHAR(45)
+}
+
+Table disciplina {
+	id_disciplina SERIAL [pk]
+	id_admin INT [not null, ref: > administrador.id_admin]
+	id_semestre INT [not null, ref: > semestre.id_semestre]
+	id_curso INT [not null, ref: > curso.id_curso]
+	id_turma INT [not null, ref: > turma.id_turma]
+	nome_disciplina VARCHAR(45)
+}
+
+Table professor {
+	id_professor SERIAL [pk]
+	id_pessoa INT [not null, ref: > pessoa.id_pessoa]
+	id_forum INT [not null, ref: > forum.id_forum]
+	id_semestre INT [not null, ref: > semestre.id_semestre]
+	matricula_proof VARCHAR(25) [unique, not null]
+	senha_hash VARCHAR(255) [unique, not null]
+	nivel_acesso VARCHAR(20) [default: 'Medio', note: 'Check constraint: Medio']
+}
+
+Table professor_disciplina {
+	id_professor INT [not null, ref: > professor.id_professor]
+	id_disciplina INT [not null, ref: > disciplina.id_disciplina]
+}
+
+Table aluno {
+	id_aluno SERIAL [pk]
+	id_pessoa INT [not null, ref: > pessoa.id_pessoa]
+	id_curso INT [not null, ref: > curso.id_curso]
+	id_turma INT [not null, ref: > turma.id_turma]
+	id_semestre INT [not null, ref: > semestre.id_semestre]
+	id_forum INT [not null, ref: > forum.id_forum]
+	matricula_aluno VARCHAR(25)
+	nivel_acesso VARCHAR(20) [default: 'Minimo', note: 'Check constraint: Minimo']
+	senha_hash VARCHAR(255)
+}
+
+Table notas {
+	id_notas SERIAL [pk]
+	id_aluno INT [not null, ref: > aluno.id_aluno]
+	id_professor INT [not null, ref: > professor.id_professor]
+	id_disciplina INT [not null, ref: > disciplina.id_disciplina]
+	data_registro_nota TIMESTAMP [default: `NOW()`]
+	valor_nota DECIMAL(5,2) [default: 0, not null]
+}
+
+Table faltas {
+	id_faltas SERIAL [pk]
+	id_aluno INT [not null, ref: > aluno.id_aluno]
+	id_professor INT [not null, ref: > professor.id_professor]
+	id_disciplina INT [not null, ref: > disciplina.id_disciplina]
+	data_registro_falta TIMESTAMP [default: `NOW()`]
+	data_falta DATE [default: `CURRENT_DATE`]
+	status VARCHAR(20) [not null, note: 'Check constraint: Presente or Ausente']
+	quantidade INT [default: 0, not null]
+}
+
+Table atividade {
+	id_atividade SERIAL [pk]
+	id_aluno INT [ref: > aluno.id_aluno]
+	id_professor INT [not null, ref: > professor.id_professor]
+	tipo_atividade VARCHAR(20) [note: 'Check constraint: Leitura, Exercício, Trabalho, Prova, Video']
+	material_atividade VARCHAR(20) [note: 'Check constraint: PDF, Txt, Word, Img, Video']
+	data_criacao TIMESTAMP [default: `NOW()`]
+	data_entrega TIMESTAMP
+}
+
+Table comentario {
+	id_comentario SERIAL [pk]
+	id_forum INT [not null, ref: > forum.id_forum]
+	id_aluno INT [ref: > aluno.id_aluno]
+	id_professor INT [ref: > professor.id_professor]
+	conteudo TEXT [not null]
+	data_comentario TIMESTAMP [default: `NOW()`]
+}
+
+Table login_admin {
+	id_login SERIAL [pk]
+	id_admin INT [not null, ref: > administrador.id_admin]
+	data_login TIMESTAMP [default: `NOW()`]
+	nome_admin VARCHAR(45) [not null]
+}
+
+Table login_professor {
+	id_login SERIAL [pk]
+	id_professor INT [not null, ref: > professor.id_professor]
+	data_login TIMESTAMP [default: `NOW()`]
+	nome_professor VARCHAR(45) [not null]
+	matricula_proof VARCHAR(25) [unique, not null]
+}
+
+Table login_aluno {
+	id_login SERIAL [pk]
+	id_aluno INT [not null, ref: > aluno.id_aluno]
+	data_login TIMESTAMP [default: `NOW()`]
+	nome_aluno VARCHAR(45) [not null]
+	matricula_aluno VARCHAR(25) [unique, not null]
+}
+
+Table historico_login {
+	id_historico SERIAL [pk]
+	id_login_admin INT [ref: > login_admin.id_login]
+	id_login_professor INT [ref: > login_professor.id_login]
+	id_login_aluno INT [ref: > login_aluno.id_login]
+	data_login TIMESTAMP [default: `NOW()`]
+	nome_usuario VARCHAR(45) [not null]
+}
