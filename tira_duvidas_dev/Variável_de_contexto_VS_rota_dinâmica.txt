@@ -1,0 +1,59 @@
+A variável de contexto no Flask 
+
+é uma forma de armazenar informações que podem ser usadas em diferentes partes da aplicação 
+durante uma única requisição HTTP. Ela permite que o servidor web saiba o que o cliente está pedindo 
+e que informações ele está tentando acessar ou manipular. 
+Basicamente, variáveis de contexto são objetos que o Flask fornece para trabalhar com os dados
+ da requisição (por exemplo, o objeto request), a sessão do usuário (com o objeto session), 
+ ou informações gerais de uso (com o objeto g).
+
+Rotas Dinâmicas 
+
+Entretanto, no contexto de rotas dinâmicas, o valor que passamos na URL 
+Não é considerado uma variável de contexto. 
+Na verdade, esses valores são parâmetros de rota, que são passados diretamente como argumentos 
+para a função que lida com a rota
+
+                                    Veja! 
+from flask import Blueprint
+
+curso_route = Blueprint('cursos', __name__)
+
+@curso_route.route('/cursos/<int:id_cursos>')
+def get_curso(id_cursos):
+    return f"Você está visualizando o curso com ID: {id_cursos}"
+
+    - O que fizemos aqui? 
+        Criamos uma Bluprint  e definimos rotas para essa blueprint
+        com parâmetros dinâmicos que aceita dados tipo inteiro 
+        O número que for passado para o id_curso, irá para  a variável de contexto 
+        que está na função def get_curso(id_curso) 
+
+        curso_route: É o Blueprint que agrupa rotas relacionadas a "cursos" dentro da aplicação Flask.
+        
+        @curso_route.route('/cursos/<int:id_cursos>'): Define uma rota com um parâmetro dinâmico, onde 
+        o Flask espera um número inteiro (int) no lugar de <id_cursos>. 
+        O valor inserido na URL será capturado e passado para a função.
+
+        id_cursos: Este é o parâmetro de rota que vai receber o valor dinâmico da URL. 
+        Por exemplo, se o usuário acessar /cursos/5, o valor 5 será passado como argumento 
+        para a função get_curso.
+
+O que acontece quando acessamos essa rota?
+
+Se o usuário visitar /cursos/5, o valor 5 será capturado pela variável id_cursos e 
+passado para a função get_curso, que vai devolver a mensagem: 
+"Você está visualizando o curso com ID: 5".
+
+Diferença entre as duas! 
+
+Variáveis de contexto:
+
+No Flask são objetos globais para o ciclo de vida de uma requisição como: 
+request, session ou g que permitem acesso a dados da requisição ou dados da sessão do usuário 
+ao longo do ciclo de vida de uma requisição HTTP. 
+
+Rota Dinâmica: 
+
+O parâmetro id_cursos que você definiu na rota dinâmica não é uma variável de contexto,
+mas um parâmetro de rota, capturado da URL e passado como argumento para a função associada à rota.
