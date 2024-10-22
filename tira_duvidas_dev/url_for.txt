@@ -2,3 +2,8 @@
 
  {{url_for(links/rotas/botões/funções_javascript/scripts_jacascript)}} 
  no jinja2 é uma forma de fazer ligação entre rotas para o servidor web flask ler
+
+ para arquivos como css/java_script:
+
+ {{url_for('static',filename='arquivo.css')}}
+ {{url_for('static',filename='arquivo.js')}}
