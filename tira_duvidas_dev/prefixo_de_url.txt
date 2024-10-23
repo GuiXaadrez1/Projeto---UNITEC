@@ -1,0 +1,53 @@
+Usando prefixo de Url nas Blueprints
+
+No Flask, o prefixo de URL para um Blueprint é uma maneira útil de organizar rotas relacionadas
+em um namespace comum. Quando você define um Blueprint, pode adicionar um prefixo para todas as rotas
+associadas a ele. 
+Isso facilita o gerenciamento de grandes aplicações web, dividindo as responsabilidades entre módulos.
+
+pode ser usando tanto na criação de uma Blueprint
+como também poder ser usado na hora de registrar essa Blueprint 
+
+                            Veja na criação da Bluprint! 
+
+
+from flask import Flask, Blueprint
+
+# Criação do Blueprint com o prefixo '/cursos'
+curso_route = Blueprint('cursos', __name__, url_prefix='/cursos')
+
+# Definição de uma rota dentro do blueprint
+@curso_route.route('/<int:id_cursos>')
+def get_curso(id_cursos):
+    return f"Você está visualizando o curso com ID: {id_cursos}"
+
+                            Veja com Bluprint registrada! 
+
+
+# Criando a aplicação Flask
+app = Flask(__name__)
+
+# Registrando o Blueprint e definindo o prefixo no momento do registro
+app.register_blueprint(curso_route, url_prefix='/cursos')
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+Como vai funcionar no navegador?
+
+1- O prefixo definido no register_blueprint() é /cursos.
+
+2- A rota dentro do Blueprint é /<int:id_cursos>, o que significa que espera um número inteiro como parâmetro de rota.
+
+3- O Flask combina o prefixo com a rota, resultando em algo assim:
+
+http://localhost:5000/cursos/1
+
+Explicação sobre: 
+
+http://localhost:5000: É o endereço padrão onde sua aplicação Flask estará rodando em modo de desenvolvimento.
+
+/cursos: Esse é o prefixo definido no register_blueprint().
+
+/1: Esse é o parâmetro dinâmico que você está passando para a rota, correspondente ao id_cursos.
+
