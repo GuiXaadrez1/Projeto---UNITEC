@@ -1,5 +1,6 @@
 # importando módulos flask, suas bibliotecas e nossos módulos
 from flask import Flask
+
 ''' 
 request: é utilizado para obter dados de requisições HTTP (como formulários e parâmetros).
 BD: módulo que criei para o nosso banco de dados
