@@ -28,9 +28,9 @@ def raiz():
 '''
 # Registrando os Blueprint no arquivo principal, vamos usar muito no projeto!
 app.register_blueprint(raiz_route)
-app.register_blueprint(login_route)
-app.register_blueprint(recuperar_pw_route)
-app.register_blueprint(home_route)
+app.register_blueprint(login_route, url_prefix='/login')
+app.register_blueprint(recuperar_pw_route, url_prefix ='/recuperar_senha')
+app.register_blueprint(home_route, url_prefix="/home")
 
 # Ativando o modo desenvolvedor e iniciando o servidor local
 if(__name__ ==  '__main__'):
