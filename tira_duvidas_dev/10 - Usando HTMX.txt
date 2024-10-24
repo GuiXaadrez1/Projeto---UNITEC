@@ -1,0 +1,65 @@
+O QUE É O HTMX?
+
+    HTMX é uma biblioteca JavaScript leve e poderosa que permite criar interações dinâmicas e 
+    atualizações no front-end de uma página da web sem a necessidade de escrever JavaScript 
+    explicitamente. Ela se destaca por facilitar a comunicação direta entre o front-end (HTML)
+    e o back-end, utilizando apenas atributos HTML para definir comportamentos dinâmicos.
+
+PARA QUE SERVE? 
+    
+    HTMX permite que você crie aplicações web com funcionalidades ricas sem adicionar a complexidade
+    de gerenciar estados ou criar APIs específicas para o front-end. Ele trabalha diretamente com o
+    servidor, simplificando o processo de fazer requisições assíncronas e atualizações dinâmicas. 
+    Com HTMX, é possível:
+
+    - Realizar requisições HTTP (GET, POST, etc.) sem a necessidade de código JavaScript.
+
+    - Atualizar partes específicas da página com conteúdo dinâmico.
+    
+    - Criar interfaces interativas, como carregamento infinito, formulários dinâmicos, ou navegação sem recarregar toda a página.
+
+COMO FUNCIONA ?
+
+    Ele se baseia em atributos HTML como hx-get, hx-post, hx-target e outros, que são inseridos diretamente nas tags HTML para definir comportamentos dinâmicos. EXEMPLO:
+
+        <!DOCTYPE html>
+            <html lang="en">
+                <head>
+                    <meta charset="UTF-8">
+                    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    <title>Exemplo HTMX</title>
+                    <script src="https://unpkg.com/htmx.org"></script>
+                </head>
+                <body>
+
+                    <button hx-get="/hello" hx-target="#resultado">Clique para dizer olá</button>
+                    <div id="resultado"></div>
+                </body>
+            </html>
+
+hx-get="/hello": Esse atributo indica que, quando o botão for clicado, será enviada uma requisição HTTP GET para a rota /hello no servidor.
+
+hx-target="#resultado": Define o alvo da resposta da requisição. O conteúdo retornado pela rota /
+hello será inserido dentro da div com o id="resultado".
+
+ATRIBUTOS ÚTEIS DE HTMX:
+
+hx-post="/rota": Envia uma requisição POST para a URL especificada.
+hx-put="/rota": Envia uma requisição PUT.
+hx-delete="/rota": Envia uma requisição DELETE.
+hx-trigger="event": Define o evento que dispara a requisição (ex: clique, hover, etc.).
+hx-swap="innerHTML": Controla como a resposta do servidor será inserida na página. Pode ser innerHTML, beforeend, afterbegin, etc.
+hx-boost: Habilita o comportamento de navegação de página dinâmica sem JavaScript.
+hx-vals: Permite passar dados adicionais na requisição, como um objeto JSON.
+
+INTEGRAÇÃO COM O BACK-END:
+    
+    HTMX funciona muito bem com servidores back-end que retornam HTML.
+    Isso significa que você pode usar frameworks como Flask, Django, Laravel, ou qualquer outro que renderize templates no servidor.
+    Quando uma rota é chamada por uma ação HTMX, o servidor pode retornar diretamente HTML que será inserido no DOM, facilitando o desenvolvimento sem a necessidade de um front-end separado.
+
+
+Para mais informação leia a documentação em:
+    
+    https://htmx.org/docs/
+
