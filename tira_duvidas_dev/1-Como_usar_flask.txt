@@ -3,3 +3,6 @@
     - installar o python com path integrado 
     - intallar o flask usando o comando: pip install flask
     - executar o código
+
+Documentação Flask;
+   https://flask.palletsprojects.com/en/3.0.x/
