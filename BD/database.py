@@ -16,6 +16,7 @@ def conf_conexao():
 
         # Executar uma consulta
         #cursor.execute("SELECT * FROM pessoa")
+        #cursor.execute("SELECT * FROM login_aluno;")
         records = cursor.fetchall()  # Pega todas as linhas da tabela
 
         # Pega o nome das colunas da tabela
