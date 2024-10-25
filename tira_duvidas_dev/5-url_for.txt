@@ -7,3 +7,13 @@
 
  {{url_for('static',filename='arquivo.css')}}
  {{url_for('static',filename='arquivo.js')}}
+
+ * USANDO URL_FOR PARA FAZER ENDPOINT EM BLUEPRINT! 
+
+  Quando precisamos fazer um endpoint um url_for, para uma blueprint, vai ser necessário pegar 
+  a função que está na blueprint e o nome que representa essa blueprint! 
+
+    {{url_for('recuperar_senha.recuperar_senha')}}
+
+    1- Nome da blueprint
+    2- Nome da função que está naquela da blueprint
