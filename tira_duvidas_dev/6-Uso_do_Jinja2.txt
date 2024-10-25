@@ -53,3 +53,6 @@ dados, valores, variáveis.
 O Jinja2 é bastante eficiente e flexível, 
 facilitando a integração entre código backend e a interface frontend. 
 No contexto de aplicações Flask, ele é o padrão para renderizar templates.
+
+documentação jija2;
+    https://jinja.palletsprojects.com/en/3.1.x/
