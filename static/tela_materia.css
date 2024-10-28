@@ -1,0 +1,125 @@
+        /* Define a aparência geral do corpo da página */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Estilo para o cabeçalho da página */
+        .header {
+            background-color: #1841c7;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        /* Nova div abaixo do cabeçalho */
+        .nova-div {
+            background-color: #ffcc00; /* Cor de fundo da nova div (amarelo claro) */
+            width: 100%; /* Largura total */
+            height: 65px; /* Altura ajustada para ser menor */
+            margin-top: 10px; /* Margem superior para dar um pequeno espaço da div azul */
+        }
+
+        /* Estilo para o contêiner principal da página */
+        .container {
+            width: 80%;
+            margin: 20px auto;
+        }
+
+        /* Estilo para o título da disciplina */
+        .titulo-disciplina {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #1841c7;
+        }
+
+        /* Estilo para cada box de item dentro dos tópicos */
+        .box-item {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        /* Estilo para o título dentro de cada box */
+        .box-item h3 {
+            margin-top: 0;
+            color: #1841c7;
+        }
+
+        /* Estilo para links dentro dos boxes */
+        .box-item a {
+            display: inline-block;
+            text-decoration: none;
+            color: #007bff;
+            margin-top: 10px;
+            font-size: 16px;
+        }
+
+        /* Estilo quando o link for "hovered" (passar o mouse por cima) */
+        .box-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Estilo para o botão de "Concluído" */
+        .btn-concluido {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* Estilo para o botão de "Concluído" quando o mouse está sobre ele */
+        .btn-concluido:hover {
+            background-color: #218838;
+        }
+
+        /* Estilo para a caixa de aviso na página */
+        .aviso {
+            color: #333;
+            padding: 15px;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        /* Estilo para os títulos principais dos tópicos */
+        .topico {
+            background-color: #1841c7;
+            color: white;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            cursor: pointer;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            height: 50px;
+        }
+
+        /* Estilo para os títulos (h2) dentro dos tópicos */
+        .topico h2 {
+            margin: 0;
+            padding-left: 10px;
+            font-size: 20px;
+        }
+
+        /* Estilo para a seta dentro dos tópicos */
+        .seta {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        /* Estilo para o conteúdo dos tópicos, inicialmente oculto */
+        .conteudo-topico {
+            display: none;
+            padding: 15px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }

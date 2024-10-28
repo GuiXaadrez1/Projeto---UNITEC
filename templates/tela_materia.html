@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Define a codificação de caracteres para o documento como UTF-8 -->
+    <meta charset="UTF-8">
+    
+    <!-- Configura a visualização para dispositivos móveis, ajustando o layout de acordo com o tamanho da tela -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título da página que aparece na aba do navegador -->
+    <title>Disciplina - Materiais e Atividades</title>
+    <link rel="stylesheet" href="tela_materia.css">
+</head>
+<body>
+    <!-- Cabeçalho com título principal -->
+    <div class="header">
+        <h1 style="font-weight: 800;">UNITEC - Nome da disciplina</h1> <!-- Título em negrito -->
+    </div>
+
+    <!-- Nova div que vai de um lado ao outro da tela, abaixo do cabeçalho -->
+    <div class="nova-div"></div>
+
+    <!-- Contêiner que centraliza o conteúdo -->
+    <div class="container">
+        <p style="font-size: 35px;" class="titulo-disciplina"><b>Programação Orientada a Objetos</b></p>
+
+        <!-- Caixa de aviso -->
+        <div class="aviso">
+            <p style="font-size: 23px;">seja bem-vindo à disciplina. As aulas e atividades estão disponíveis abaixo.</p>
+        </div>
+
+        <!-- Tópico: Detalhes da Matéria -->
+        <div class="topico" onclick="toggleConteudo(this)">
+            <span class="seta">▼</span>
+            <h2>Detalhes da Matéria</h2>
+        </div>
+        <div class="conteudo-topico">
+            <div class="box-item">
+                <h3>Planejamento POO 2024</h3>
+                <a href="#">Baixar arquivo</a>
+                <button class="btn-concluido">Concluído</button>
+            </div>
+            <div class="box-item">
+                <h3>Ementa da Disciplina POO 2024</h3>
+                <a href="#">Baixar arquivo</a>
+                <button class="btn-concluido">Concluído</button>
+            </div>
+        </div>
+
+        <!-- Tópico: Material de Estudo -->
+        <div class="topico" onclick="toggleConteudo(this)">
+            <span class="seta">▼</span>
+            <h2>Material de Estudo</h2>
+        </div>
+        <div class="conteudo-topico">
+            <div class="box-item">
+                <h3>Documento Aula 1</h3>
+                <a href="#">Baixar arquivo</a>
+            </div>
+            <div class="box-item">
+                <h3>Documento Aula 2</h3>
+                <a href="#">Baixar arquivo</a>
+            </div>
+        </div>
+
+        <!-- Tópico: Atividades -->
+        <div class="topico" onclick="toggleConteudo(this)">
+            <span class="seta">▼</span>
+            <h2>Atividades</h2>
+        </div>
+        <div class="conteudo-topico">
+            <div class="box-item">
+                <h3>Atividade 1 - Programação em Java</h3>
+                <a href="#">Enviar atividade</a>
+            </div>
+            <div class="box-item">
+                <h3>Atividade 2 - Herança e Polimorfismo</h3>
+                <a href="#">Enviar atividade</a>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Script JavaScript para alternar o conteúdo dos tópicos -->
+    <script>
+        function toggleConteudo(element) {
+            var conteudo = element.nextElementSibling;
+            var seta = element.querySelector('.seta');
+
+            if (conteudo.style.display === "block") {
+                conteudo.style.display = "none";
+                seta.textContent = "▼";
+            } else {
+                conteudo.style.display = "block";
+                seta.textContent = "▲";
+            }
+        }
+    </script>
+</body>
+</html>
