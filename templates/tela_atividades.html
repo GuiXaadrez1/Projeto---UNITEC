@@ -1,42 +1,62 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Envio de Atividade</title>
-    <link rel="stylesheet" href="{{url_for('static', filename = 'css/tela_atividade.css')}}">
-</head>
-<body>
-
-    <div class="header">
-        <h1>Nome da Faculdade - Envio de Atividade</h1>
-    </div>
-
+    <link rel="stylesheet" href="{{url_for('static', filename ='css/tela_atividade.css')}}" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="container1">
+        <a class="logo" href="#">
+          <img
+            src="{{url_for('static', filename = 'img/logo_unitec_sem_fundo.png')}}"
+            alt="Logo"
+            style="max-width: 150px; height: auto"
+          />
+        </a>
+        <div class="nav">
+          <ul>
+            <li class="item ativo">
+              <a class="link" href="#">Página Inicial</a>
+            </li>
+            <li class="item">
+              <a class="link" href="#">Meus Cursos</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <div class="container">
-        <h2 class="titulo-atividade">Atividade 1 - Programação Orientada a Objetos</h2>
+      <h2 class="titulo-atividade">
+        Atividade 1 - Programação Orientada a Objetos
+      </h2>
 
-        <div class="box-detalhes">
-            <p><strong>Aberto:</strong> Dia que abriu a atividade</p>
-            <p><strong>Vencimento:</strong> Dia de vencimento da atividade</p>
-            <p><strong>Descrição:</strong> Descrição da atividade</p>
-        </div>
+      <div class="box-detalhes">
+        <p><strong>Aberto:</strong> Dia que abriu a atividade</p>
+        <p><strong>Vencimento:</strong> Dia de vencimento da atividade</p>
+        <p><strong>Descrição:</strong> Descrição da atividade</p>
+      </div>
 
-        <div class="status-envio">
-            <p><strong>Status de envio:</strong> Você ainda não enviou esta tarefa.</p>
-        </div>
+      <div class="status-envio">
+        <p>
+          <strong>Status de envio:</strong> Você ainda não enviou esta tarefa.
+        </p>
+      </div>
 
-        <h3>Comentário (opcional):</h3>
-        <textarea class="caixa-texto" placeholder="Adicione um comentário sobre a atividade..."></textarea>
+      <h3>Comentário (opcional):</h3>
+      <textarea
+        class="caixa-texto"
+        placeholder="Adicione um comentário sobre a atividade..."
+      ></textarea>
 
-        <h3>Envie seu arquivo:</h3>
-        <label class="btn-selecionar">
-            Selecionar arquivo
-            <input type="file" style="display:none;">
-        </label>
-
-        <button class="btn-enviar">Enviar atividade</button>
-
+      <h3>Envie seu arquivo:</h3>
+      <div class="btn-container">
+        <label for="file-upload" class="file-button">Selecionar Arquivo</label>
+        <input type="file" id="file-upload" style="display: none" />
+        <button class="btn">Enviar atividade</button>
+      </div>
     </div>
-
-</body>
+  </body>
 </html>
