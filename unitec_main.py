@@ -15,7 +15,8 @@ from routes.login import login_route
 from routes.recuperar_pw import recuperar_pw_route
 from routes.home  import home_route
 from routes.admin import admin_route
-
+from routes.materia import materia_route
+from routes.atividade import atividade_route
 
 # inicializando flask
 app = Flask(__name__)
@@ -35,7 +36,8 @@ app.register_blueprint(login_route, url_prefix = '/login')
 app.register_blueprint(recuperar_pw_route, url_prefix ='/recuperar_senha')
 app.register_blueprint(home_route, url_prefix = '/home')
 app.register_blueprint(admin_route, url_prefix ='/admin')
-
+app.register_blueprint(materia_route, url_prefix = '/')
+app.register_blueprint(atividade_route, url_prefix='/materias')
 # Ativando o modo desenvolvedor e iniciando o servidor local
 if(__name__ ==  '__main__'):
     app.run(debug = True)
