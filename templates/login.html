@@ -1,21 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Login - AVA UNITEC</title>
-  <link rel="stylesheet" href= "{{ url_for('static', filename= 'css/login.css') }}"> 
-</head>
-<body>
-  <div>
-    <h1>Login</h1>
-    <br>
-    <form onsubmit="return login(event)">
-      <input type="text" placeholder="Login">
-      <input type="password" placeholder="Senha">
-      <button type="submit">Entrar</button>
-        <!-- Essa url_for é para uma função no back_end que está dentro de uma Blueprint-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login - AVA UNITEC</title>
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/login.css')}}" />
+  </head>
+  <body>
+    <div class="login-container">
+      <img src="{{url_for('static', filename = 'img/logo_unitec_sem_fundo.png')}}" alt="UNITEC Logo" />
+      <h1>Login</h1>
+      <form onsubmit="return login(event)">
+        <input type="text" id="username" placeholder="Login" required />
+        <input type="password" id="password" placeholder="Senha" required />
+        <button type="submit">Entrar</button>
+        <!-- Elemento para mensagens de erro -->
+        <p id="error-message" class="error-message"></p>
         <a href="{{url_for('recuperar_senha.recuperar_senha')}}">Esqueci minha Senha</a>
-    </form>
-  </div>
-</body>
+      </form>
+    </div>
+
+    <!-- Script para integrar com o back-end -->
+    <script>
+      async function login(event) {
+        event.preventDefault(); // Impede o envio padrão do formulário
+
+        // Obtém os valores do formulário
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
+
+        try {
+          // Faz a requisição ao back-end
+          const response = await fetch("http://seu-servidor.com/api/login", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ username, password }),
+          });
+
+          const data = await response.json();
+
+          if (response.ok) {
+            // Redireciona para a página principal se o login for bem-sucedido
+            window.location.href = "{{url_for('recuperar_senha.recuperar_senha')}}";
+          } else {
+            // Exibe mensagem de erro
+            const errorMessage = document.getElementById("error-message");
+            errorMessage.textContent = data.message || "Usuário ou senha incorretos.";
+            errorMessage.style.display = "block";
+          }
+        } catch (error) {
+          console.error("Erro:", error);
+          alert("Ocorreu um erro ao tentar fazer login.");
+        }
+      }
+    </script>
+  </body>
+</html>

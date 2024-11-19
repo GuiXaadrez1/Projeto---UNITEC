@@ -1,133 +1,178 @@
+/* Define a aparência geral do corpo da página */
 body {
-    font-family: Arial, sans-serif;
-    background-color: #edeeff;
- }
- .navbar {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 1rem;
-    background-color: #fff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1030;
+    margin-top: 200px; /* Adiciona um espaçamento superior ao corpo da página */
+    font-family: Arial, sans-serif; /* Define a fonte principal da página */
+    background-color: white; /* Define uma cor de fundo clara */
+    margin: 0; /* Remove as margens padrão da página */
+    padding: 0; /* Remove o preenchimento padrão da página */
 }
 
-.container {
-    display: flex;
-    justify-content: center; 
-    width: 100%; 
+/* Estilo para o cabeçalho da página */
+.header {
+    margin-top: 100px; /* Adiciona um espaçamento superior para o cabeçalho */
+    background-image: linear-gradient(45deg, rgb(19, 41, 61), rgb(0, 100, 148), rgb(36,123,160), rgb(27,152,224), rgb(232,241,242)); /* Adiciona um degradê como fundo */
+    color: white; /* Define a cor do texto como branco */
+    padding: 10px; /* Adiciona preenchimento interno ao cabeçalho */
+    text-align: center; /* Centraliza o texto dentro do cabeçalho */
+    font-size: 15px; /* Define o tamanho da fonte no cabeçalho */
 }
 
-.nav {
-    flex: 1; 
-    display: flex;
-    justify-content: space-between;
+.navbar {
+    display: flex; /* Define que os itens dentro da navbar serão dispostos em linha */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    padding: 1rem; /* Adiciona espaço interno em todas as direções */
+    background-image: linear-gradient(45deg, rgb(232, 241, 242), rgb(36,123,160), rgb(0,100, 148), rgb(27,152,224), rgb(19, 41, 61)); /* Degradê de fundo */
+    color: white; /* Define a cor do texto como branco */
+    width: 100%; /* Define a largura da navbar como 100% da tela */
+    position: fixed; /* Fixa a navbar na parte superior da tela */
+    top: 0; /* Define a posição superior da navbar */
+    left: 0; /* Define a posição inicial da navbar no canto esquerdo */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra sutil abaixo da navbar */
+    z-index: 10; /* Garante que a navbar fique acima de outros elementos */
 }
 
 .nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex; 
-    align-items: center;
+    list-style: none; /* Remove os marcadores da lista */
+    display: flex; /* Define que os itens da lista serão dispostos em linha */
+    gap: 15px; /* Adiciona espaçamento entre os itens */
+    justify-content: center; /* Centraliza os itens dentro da navbar */
 }
 
-.item {
-    margin: 0 15px; 
+.circle-lc {
+    width: 30px; /* Define a largura do círculo */
+    height: 30px; /* Define a altura do círculo */
+    background-color: #333; /* Define a cor de fundo do círculo como preta */
+    color: white; /* Define a cor do texto dentro do círculo como branca */
+    font-weight: bold; /* Define o texto como negrito */
+    display: flex; /* Define um layout flexbox para o círculo */
+    justify-content: center; /* Centraliza o texto horizontalmente */
+    align-items: center; /* Centraliza o texto verticalmente */
+    border-radius: 50%; /* Torna o elemento redondo */
+    position: fixed; /* Mantém o círculo fixo na tela */
+    top: 25px; /* Distância do topo */
+    right: 100px; /* Distância da direita */
+    z-index: 1000; /* Garante que o círculo fique acima de outros elementos */
+    cursor: pointer; /* Muda o cursor para uma mãozinha */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave na cor de fundo */
+}
+.circle-lc:hover {
+    background-color: #494545; /* Muda a cor de fundo ao passar o mouse (ajuste conforme necessário) */
 }
 
-.link {
-    text-decoration: none;
-    color: #333;
-    font-weight: 500;
+/* Estiliza o menu suspenso */
+.dropdown-menu {
+    position: absolute;
+    top: 70px; /* Ajuste para alinhar abaixo da bolinha */
+    right: 90px; /* Alinha com a posição da bolinha */
+    background-color: #ffffff; /* Cor de fundo */
+    border: 1px solid #ddd; /* Borda leve */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    border-radius: 5px; /* Cantos arredondados */
+    display: none; /* Inicialmente oculto */
+    min-width: 150px; /* Define largura mínima */
+    z-index: 999; /* Garante que o menu fique acima de outros elementos */
 }
 
-.item.ativo .link {
-    font-weight: bold;
-    color: #007bff;
+.dropdown-menu a {
+    color: #333; /* Cor do texto */
+    text-decoration: none; /* Remove sublinhado */
+    padding: 10px 15px; /* Espaçamento interno */
+    display: block; /* Ocupa a largura completa */
+    font-size: 14px; /* Ajuste do tamanho do texto */
 }
 
-.link:hover {
-    color: #0056b3;
+.dropdown-menu a:hover {
+    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
+}
+
+
+.logo {
+    position: absolute; /* Permite que a logo seja posicionada de forma independente */
+    left: 1rem; /* Posiciona a logo a 1rem da margem esquerda */
+}
+
+.item.ativo {
+    margin-left: auto; /* Faz com que os itens à esquerda empurrem este elemento para a direita */
 }
 
 .logo img {
-    width: 90px;
-    height: auto;
-    margin-right: 20px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    max-width: 80px; /* Define a largura máxima da imagem da logo */
+    height: auto; /* Mantém a proporção da logo */
+}
+
+.link {
+    text-decoration: none; /* Remove o sublinhado dos links */
+    color: white; /* Define a cor do link como branca */
+    font-weight: bold; /* Define o texto do link como negrito */
+}
+
+.link:hover {
+    text-decoration: underline; /* Adiciona um sublinhado ao passar o mouse sobre o link */
+}
+
+/* Define o layout centralizado para o conteúdo principal */
+.container {
+    display: flex; /* Define um layout flexbox */
+    justify-content: center; /* Centraliza os itens horizontalmente */
+    align-items: center; /* Centraliza os itens verticalmente */
+    padding: 6rem 1rem 2rem; /* Adiciona espaçamento interno ao container */
+    width: 100%; /* Define a largura do container como 100% */
+}
+
+.nova-div {
+    display: flex; /* Define um layout flexbox */
+    background-image: linear-gradient(45deg, rgb(19, 41, 61), rgb(0, 100, 148), rgb(36,123,160), rgb(27,152,224), rgb(232,241,242)); /* Fundo com degradê */
+    color: white; /* Define a cor do texto como branca */
+    width: 100%; /* Define a largura como 100% */
+    height: 65px; /* Define a altura como 65px */
+    margin-top: 10px; /* Adiciona um espaçamento superior */
 }
 
 .container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 25px;
-    justify-content: space-between;
+    display: flex; /* Layout flexbox */
+    flex-wrap: wrap; /* Permite que os itens quebrem para a próxima linha */
+    gap: 20px; /* Espaçamento entre os itens */
+    justify-content: center; /* Centraliza os itens no container */
+    padding: 20px; /* Espaçamento interno do container */
+    box-sizing: border-box; /* Inclui padding e bordas no cálculo do tamanho */
 }
+
 .course-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    width: 30%;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd; /* Borda leve */
+    border-radius: 8px; /* Cantos arredondados */
+    overflow: hidden; /* Previne que o conteúdo ultrapasse a borda */
+    width: calc(33.33% - 20px); /* Ocupa 33.33% do espaço disponível (3 por linha) com margem ajustada */
+    max-width: 450px; /* Limita a largura máxima a 400px */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adiciona sombra */
+    background-image: linear-gradient(45deg, rgb(19, 41, 61), rgb(0, 100, 148), rgb(36, 123, 160), rgb(27, 152, 224), rgb(232, 241, 242)); /* Fundo com degradê */
 }
+
 .course-card img {
-    width: 100%;
-    height: 175px;
-    object-fit: cover;
+    width: 100%; /* Define a largura da imagem como 100% do cartão */
+    height: 175px; /* Define a altura da imagem */
+    object-fit: cover; /* Faz com que a imagem preencha o espaço sem distorção */
 }
+
 .course-content {
-    padding: 15px;
+    padding: 15px; /* Adiciona preenchimento interno ao conteúdo do cartão */
 }
+
 .course-content h3 {
-    margin: 0 0 10px 0;
-    font-size: 18px;
+    margin: 0 0 10px 0; /* Remove margens superiores e adiciona uma margem inferior */
+    font-size: 18px; /* Define o tamanho da fonte do título */
 }
+
 .course-content a {
-    color: #007BFF;
-    text-decoration: none;
+    color: white; /* Define a cor do link como branco */
+    text-decoration: none; /* Remove o sublinhado dos links */
 }
+
 .course-content a:hover {
-    text-decoration: underline;
+    color: #ddd; /* Muda a cor do link ao passar o mouse */
+    text-decoration: underline; /* Adiciona um sublinhado ao passar o mouse */
 }
-h1 {
-    margin-left: 80px;
-    margin-top: 170px;
-    font-size: 36px;
-    color: rgb(189, 156, 9)
 
-}
-.blue-text {
-    margin-left: 80px;
-    color: #004281;
-    font-size: 46px;
-}
-.yellow-text {
-    color: rgb(189, 156, 9);
-    font-size: 46px;
-}
 h3 {
-    font-size: 45px;
-}
-
-.legenda {
-    margin-left: 80px;
-    font-size: 18px;
-    color: #888888;
-}
-.btn {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 40px;
-    background-color: #bc910a;
-    color: white;
-    border: none;
-    font-size: 1.5vw;
-    cursor: pointer;
-    border-radius: 5px;
+    font-size: 45px; /* Define o tamanho da fonte de todos os títulos h3 */
 }

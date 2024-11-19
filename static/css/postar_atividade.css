@@ -30,6 +30,13 @@ body {
     z-index: 10;
 }
 
+.container1 {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: center;
+}
+
 .nav ul {
     list-style: none;
     display: flex;
@@ -40,7 +47,7 @@ body {
 .circle-lc {
     width: 30px; /* Largura do círculo */
     height: 30px; /* Altura do círculo */
-    background-color: #333; /* Cor de fundo preta */
+    background-color: #333;; /* Cor de fundo preta */
     color: white; /* Cor do texto branco */
     font-weight: bold; /* Texto em negrito */
     display: flex; /* Alinha o texto no centro */
@@ -59,29 +66,28 @@ body {
 }
 /* Estiliza o menu suspenso */
 .dropdown-menu {
+    display: none;
     position: absolute;
-    top: 70px; /* Ajuste para alinhar abaixo da bolinha */
-    right: 90px; /* Alinha com a posição da bolinha */
-    background-color: #ffffff; /* Cor de fundo */
-    border: 1px solid #ddd; /* Borda leve */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
-    border-radius: 5px; /* Cantos arredondados */
-    display: none; /* Inicialmente oculto */
-    min-width: 150px; /* Define largura mínima */
-    z-index: 999; /* Garante que o menu fique acima de outros elementos */
-}
+    right: 10px;
+    top: 40px;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    z-index: 1000;
+  }
 
-.dropdown-menu a {
-    color: #333; /* Cor do texto */
-    text-decoration: none; /* Remove sublinhado */
-    padding: 10px 15px; /* Espaçamento interno */
-    display: block; /* Ocupa a largura completa */
-    font-size: 14px; /* Ajuste do tamanho do texto */
-}
+  .dropdown-menu a {
+    display: block;
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    font-size: 14px;
+  }
 
-.dropdown-menu a:hover {
-    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
-}
+  .dropdown-menu a:hover {
+    background: rgba(0, 100, 148, 0.2);
+  }
 
 
 .logo {
@@ -99,6 +105,7 @@ body {
     height: auto;
 }
 
+
 .link {
     text-decoration: none;
     color: white;
@@ -108,6 +115,7 @@ body {
 .link:hover {
     text-decoration: underline;
 }
+
 /* Conteúdo centralizado */
 .container {
     display: flex;
@@ -126,6 +134,92 @@ body {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Botão da seta */
+.arrow-button {
+    position: absolute; /* Permite posicionamento absoluto dentro da .box-detalhes */
+    top: 50%; /* Centraliza verticalmente */
+    right: 10px; /* Alinha a seta no canto direito */
+    transform: translateY(-50%); /* Ajusta a seta para ficar no centro verticalmente */
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: white;
+}
+
+
+.arrow-button:hover {
+    transform: scale(1.2);
+}
+
+/* Estilo do menu dropdown */
+#dropdown-menu {
+    list-style-type: none;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: rgba(0, 100, 148, 0.9);
+    color: white;
+    border-radius: 5px;
+    position: absolute;
+    display: block;
+    width: 200px;
+    display: none; /* Inicialmente escondido */
+}
+
+#dropdown-menu li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+#dropdown-menu li:hover {
+    background-color: #005f8c;
+    border-radius: 5px;
+}
+
+/* Estilo do container de opções */
+#options-container {
+    background-color: black;
+    color: black; 
+    border-radius: 3px;
+    margin-top: 03px;
+    padding: 03px;
+}
+
+
+/* Controle da visibilidade */
+.hidden {
+    display: none;
+}
+
+/* Estilo das opções */
+.option {
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+    background-image: linear-gradient(45deg, rgb(19, 41, 61), rgb(0, 100, 148), rgb(36,123,160), rgb(27,152,224), rgb(232,241,242)); /* Adiciona um degradê como fundo */
+    color: white; /* Define a cor do texto como branco */
+    border-radius: 5px; /* Ajuste opcional */
+}
+
+.option:last-child {
+    border-bottom: none; /* Remove a linha da última opção */
+}
+
+.option:hover {
+    background-color: rgba(0, 0, 0, 0.2); /* Pequeno efeito hover */
+    border-radius: 5px;
+}
+
+
+.option:last-child {
+    border-bottom: none; /* Remove a linha da última opção */
+}
+
+.option:hover {
+    background-color: #005f8c;
+    border-radius: 5px;
+}
+
 /* Títulos e textos */
 .titulo-atividade {
     text-align: center;
@@ -134,11 +228,12 @@ body {
 }
 
 .box-detalhes, .status-envio {
-    background-image: linear-gradient(45deg, rgb(19, 41, 61), rgb(0, 100, 148), rgb(36,123,160), rgb(27,152,224), rgb(232,241,242));
-    color: white;
+    background-image: linear-gradient(45deg, rgb(232, 241, 242), rgb(36,123,160), rgb(0,100, 148), rgb(27,152,224), rgb(19, 41, 61)); /* Gradiente de fundo */
+    color: black; /* Cor do texto no cabeçalho */
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 8px;
+    position: relative; /* Permite que os elementos filhos sejam posicionados em relação a essa div */
 }
 
 h3 {
@@ -177,14 +272,11 @@ h3 {
     transform: scale(1.05);
 }
 
+/* Estilizando o nome do arquivo */
 #file-name {
+    display: block;
+    margin-top: 10px;
     font-size: 14px;
-    color: #333;
-    margin-left: 10px;
-    max-width: 300px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    display: inline-block;
-    vertical-align: middle;
-}
+    color: #555;
+    font-style: italic;
+  }

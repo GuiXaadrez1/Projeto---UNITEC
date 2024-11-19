@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- Configurações básicas da página -->
+    <meta charset="UTF-8" />
+    <!-- Define a codificação de caracteres para UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Responsividade para dispositivos móveis -->
+    <title>Editar Perfil do Aluno - UNIEURO</title>
+    <!-- Título da página -->
+
+    <!-- Link para o arquivo de estilos externo -->
+    <link rel="stylesheet" href="..\static/perfil_aluno_editar.css" />
+  </head>
+  <body>
+    <!-- Cabeçalho da página -->
+    <header>
+      <!-- Logo da UNITEC -->
+      <div class="logo">
+        <img src="..\assets/logo_unitec_sem_fundo.png" alt="UNITEC Logo" />
+      </div>
+
+      <!-- Link para a página inicial -->
+      <nav>
+        <a href="..\templates\home.html">Página inicial</a>
+      </nav>
+
+      <!-- Informações do perfil no cabeçalho -->
+      <div class="perfil-header">
+        <span>LC</span>
+        <!-- Iniciais do usuário -->
+        <button>Modo de edição</button>
+        <!-- Botão para ativar o modo de edição -->
+      </div>
+    </header>
+
+    <!-- Container principal do perfil -->
+    <main class="perfil-container">
+      <!-- Seção com informações principais do aluno -->
+      <section class="perfil-principal">
+        <div class="foto-perfil">
+          <img src="avatar-placeholder.png" alt="Foto do Aluno" />
+          <!-- Avatar do aluno -->
+          <h2>Nome do Aluno</h2>
+          <!-- Nome do aluno -->
+        </div>
+
+        <!-- Detalhes do usuário -->
+        <div class="detalhes-usuario">
+          <h2>Detalhes do usuário</h2>
+          <p>
+            <strong>Endereço de e-mail:</strong> 
+            <span contenteditable="true">aluno.sobrenome@gmail.com</span>
+          </p>
+          <br />
+          <p>
+            <strong>Telefone:</strong> 
+            <span contenteditable="true">61-99999-9999</span>
+          </p>
+          <br />
+          <p><strong>Registro Academico:</strong> 999999</p>
+          <br />
+          <p><strong>Notas:</strong> ARRUMAR</p>
+        </div>
+      </section>
+
+      <!-- Informações adicionais do aluno -->
+      <aside class="informacoes-secundarias">
+
+        <div class="detalhes-curso">
+          <h3>Matérias:</h3>
+          <ul>
+            24 | BANCO DE DADOS AVANÇADOS
+            <br />
+            24 | PROGRAMAÇÃO ORIENTADA A OBJETOS
+            <br />
+            24 | PROJETO INTEGRADOR DE SISTEMAS COMPUTACIONAIS
+            <br />
+            24 | SISTEMAS OPERACIONAIS
+          </ul>
+        </div>
+
+        <div class="miscellaneous">
+          <h3>Notas:</h3>
+          <!-- Seção de links para recursos variados -->
+          <a href="C:/Users/Leandro/Desktop/UNITEC/templates/tela_materia.html">Banco de dados avançado:</a>|
+          <a href="C:/Users/Leandro/Desktop/UNITEC/templates/tela_materia.html">Programação orientada a objetos:</a>|
+          <a href="C:/Users/Leandro/Desktop/UNITEC/templates/tela_materia.html">Projeto integrador de sistemas operacionais:</a>|
+          <a href="C:/Users/Leandro/Desktop/UNITEC/templates/tela_materia.html">Sistemas operacionais:</a> |
+        </div>
+      </aside>
+    </main>
+  </body>
+</html>

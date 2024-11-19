@@ -17,7 +17,7 @@ from routes.home  import home_route
 from routes.admin import admin_route
 from routes.materia import materia_route
 from routes.atividade import atividade_route
-
+from routes.perfil_aluno import perfil_aluno_route
 # inicializando flask
 app = Flask(__name__)
 # "mydb: Estabelece a conexão(local) com o banco de dados(local) utilizando a função conf_conexao()."
@@ -38,6 +38,7 @@ app.register_blueprint(home_route, url_prefix = '/home')
 app.register_blueprint(admin_route, url_prefix ='/admin')
 app.register_blueprint(materia_route, url_prefix = '/')
 app.register_blueprint(atividade_route, url_prefix='/materias')
+app.register_blueprint(perfil_aluno_route, url_prefix ='/perfil_aluno')
 # Ativando o modo desenvolvedor e iniciando o servidor local
 if(__name__ ==  '__main__'):
     app.run(debug = True)

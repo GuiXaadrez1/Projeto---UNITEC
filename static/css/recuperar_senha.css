@@ -1,52 +1,57 @@
 body {
-    font-family: Arial, Helvetica, sans-serif; /* Define a fonte do texto para Arial ou Helvetica */
-    background-image: linear-gradient(45deg, rgb(19, 41, 61), rgb(0, 100, 148), rgb(36,123,160), rgb(27,152,224), rgb(232,241,242)); /* Define um gradiente de fundo */
-    height: 100vh; /* Define a altura da página como 100% da altura da tela */
-    margin: 0; /* Remove as margens padrão da página */
-    display: flex; /* Usa Flexbox para alinhar o conteúdo */
-    justify-content: center; /* Centraliza o conteúdo horizontalmente */
-    align-items: center; /* Centraliza o conteúdo verticalmente */
-  }
-  div {
-    background-color: rgba(255, 255, 255, 0.8); /* Define a cor de fundo branca com 80% de opacidade */
-    padding: 40px; /* Adiciona um espaçamento interno (padding) de 40px em todos os lados */
-    border-radius: 12px; /* Arredonda os cantos da div */
-    color: rgb(0, 0, 0); /* Define a cor do texto como preta */
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve à div */
-    max-width: 400px; /* Define a largura máxima da div em 400px */
-    width: 100%; /* Faz com que a div ocupe 100% da largura disponível */
-    text-align: center; /* Centraliza o texto dentro da div */
-  }
-  h4 {
-    font-size: 18px; /* Define o tamanho da fonte como 18px */
-    margin-bottom: 20px; /* Adiciona um espaçamento inferior de 20px abaixo do título */
-    font-weight: normal; /* Define o peso da fonte como normal */
-    color: #333; /* Define a cor do texto como um cinza escuro */
-  }
-  form {
-    display: flex; /* Usa Flexbox para organizar os elementos do formulário */
-    flex-direction: column; /* Alinha os itens do formulário verticalmente */
-  }
-  input {
-    padding: 12px; /* Adiciona um espaçamento interno (padding) de 12px nos inputs */
-    width: calc(100% - 24px); /* Define a largura dos inputs para 100% menos 24px para evitar que toquem as bordas */
-    margin-bottom: 20px; /* Adiciona um espaçamento inferior de 20px */
-    border: 1px solid #ccc; /* Define uma borda cinza clara de 1px ao redor dos inputs */
-    border-radius: 8px; /* Arredonda os cantos dos inputs */
-    outline: none; /* Remove o contorno padrão dos inputs ao focar */
-    font-size: 14px; /* Define o tamanho da fonte dos inputs como 14px */
-  }
-  button {
-    background-color: #0c2340; /* Define a cor de fundo do botão como um azul escuro */
-    border: none; /* Remove as bordas padrão do botão */
-    padding: 12px; /* Adiciona um espaçamento interno (padding) de 12px no botão */
-    width: 100%; /* Faz com que o botão ocupe 100% da largura da div */
-    border-radius: 8px; /* Arredonda os cantos do botão */
-    color: white; /* Define a cor do texto no botão como branco */
-    font-size: 14px; /* Define o tamanho da fonte do botão como 14px */
-    transition: background-color 0.3s ease; /* Adiciona uma transição suave de 0.3s para a mudança de cor de fundo ao passar o mouse */
-  }
-  button:hover {
-    background-color: #133867; /* Altera a cor de fundo do botão ao passar o mouse */
-    cursor: pointer; /* Altera o cursor para um ponteiro (mãozinha) ao passar o mouse sobre o botão */
-  }
+  font-family: Arial, Helvetica, sans-serif; /* Define a fonte do texto para Arial ou Helvetica */
+  background-image: linear-gradient(45deg, rgb(19, 41, 61), rgb(0, 100, 148), rgb(36,123,160), rgb(27,152,224), rgb(232,241,242)); /* Define um gradiente de fundo */
+  height: 100vh; /* Define a altura da página como 100% da altura da tela */
+  margin: 0; /* Remove as margens padrão da página */
+  display: flex; /* Usa Flexbox para alinhar o conteúdo */
+  justify-content: center; /* Centraliza o conteúdo horizontalmente */
+  align-items: center; /* Centraliza o conteúdo verticalmente */
+}
+div {
+  background-color: rgba(255, 255, 255, 0.8); /* Define a cor de fundo branca com 80% de opacidade */
+  padding: 40px; /* Adiciona um espaçamento interno (padding) de 40px em todos os lados */
+  border-radius: 12px; /* Arredonda os cantos da div */
+  color: rgb(0, 0, 0); /* Define a cor do texto como preta */
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra leve à div */
+  max-width: 400px; /* Define a largura máxima da div em 400px */
+  width: 100%; /* Faz com que a div ocupe 100% da largura disponível */
+  text-align: center; /* Centraliza o texto dentro da div */
+}
+
+img {
+  width: 120px;
+}
+
+h4 {
+  font-size: 18px; /* Define o tamanho da fonte como 18px */
+  margin-bottom: 20px; /* Adiciona um espaçamento inferior de 20px abaixo do título */
+  font-weight: normal; /* Define o peso da fonte como normal */
+  color: #333; /* Define a cor do texto como um cinza escuro */
+}
+form {
+  display: flex; /* Usa Flexbox para organizar os elementos do formulário */
+  flex-direction: column; /* Alinha os itens do formulário verticalmente */
+}
+input {
+  padding: 12px; /* Adiciona um espaçamento interno (padding) de 12px nos inputs */
+  width: calc(100% - 24px); /* Define a largura dos inputs para 100% menos 24px para evitar que toquem as bordas */
+  margin-bottom: 20px; /* Adiciona um espaçamento inferior de 20px */
+  border: 1px solid #ccc; /* Define uma borda cinza clara de 1px ao redor dos inputs */
+  border-radius: 8px; /* Arredonda os cantos dos inputs */
+  outline: none; /* Remove o contorno padrão dos inputs ao focar */
+  font-size: 14px; /* Define o tamanho da fonte dos inputs como 14px */
+}
+button {
+  background-color: #0c2340; /* Define a cor de fundo do botão como um azul escuro */
+  border: none; /* Remove as bordas padrão do botão */
+  padding: 12px; /* Adiciona um espaçamento interno (padding) de 12px no botão */
+  width: 100%; /* Faz com que o botão ocupe 100% da largura da div */
+  border-radius: 8px; /* Arredonda os cantos do botão */
+  color: white; /* Define a cor do texto no botão como branco */
+  font-size: 14px; /* Define o tamanho da fonte do botão como 14px */
+  transition: background-color 0.3s ease; /* Adiciona uma transição suave de 0.3s para a mudança de cor de fundo ao passar o mouse */
+}
+button:hover {
+  background-color: #133867; /* Altera a cor de fundo do botão ao passar o mouse */
+  cursor: pointer; /* Altera o cursor para um ponteiro (mãozinha) ao passar o mouse sobre o botão */
+}

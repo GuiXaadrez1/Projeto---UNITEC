@@ -1,19 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Garante que o site seja responsivo, ajustando-se à largura da tela -->
-  <title>Recuperar senha - AVA UNITEC</title> <!-- Define o título da página que aparece na aba do navegador -->
-  <link rel="stylesheet" href="{{url_for('static',filename = 'css/recuperar_senha.css')}}">
-</head>
-<body>
-  <div>
-    <h4>Para redefinir sua senha, informe o email cadastrado na sua conta e te enviaremos um link com as instruções de redefinição de senha</h4> <!-- Texto explicativo para recuperação de senha -->
-    <form onsubmit="return login(event)"> <!-- Formulário para entrada de dados com um evento "onsubmit" que chama a função "login" -->
-      <input type="text" placeholder="E-mail"> <!-- Campo de texto para o usuário inserir o email -->
-      <input type="text" placeholder="Confirmar E-mail"> <!-- Campo de texto para o usuário confirmar o email -->
-      <button type="submit">Enviar</button> <!-- Botão de envio para submeter o formulário -->
-    </form>
-  </div>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Define o conjunto de caracteres como UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Garante que o site seja responsivo, ajustando-se à largura da tela -->
+    <title>Recuperar senha - AVA UNITEC</title>
+    <!-- Define o título da página que aparece na aba do navegador -->
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/recuperar_senha.css')}}" />
+  </head>
+  <body>
+    <div>
+      <img src="{{url_for('static', filename = 'img/logo_unitec_sem_fundo.png')}}" alt="UNITEC Logo" />
+      <h4>
+        Para redefinir sua senha, informe o email cadastrado na sua conta e te
+        enviaremos um link com as instruções de redefinição de senha
+      </h4>
+      <!-- Texto explicativo para recuperação de senha -->
+      <form onsubmit="return login(event)">
+        <!-- Formulário para entrada de dados com um evento "onsubmit" que chama a função "login" -->
+        <input type="email" placeholder="E-mail" required />
+        <!-- Campo de texto para o usuário inserir o email -->
+        <input type="email" placeholder="Confirmar E-mail" required />
+        <!-- Campo de texto para o usuário confirmar o email -->
+        <button type="submit">Enviar</button>
+        <!-- Botão de envio para submeter o formulário -->
+        <form method="POST" action="/recuperar-senha">
+      </form>
+    </div>
+  </body>
 </html>
