@@ -5,7 +5,7 @@ def conf_conexao():
     try:
         connection = psycopg2.connect(
             user="postgres",
-            password="32481024",
+            password="123456",
             host="localhost",
             port="5432",
             database="unitec"

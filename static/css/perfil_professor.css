@@ -1,0 +1,135 @@
+/* Define a fonte principal para todos os textos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif; /* Fonte padrão para todo o site */
+}
+
+/* Estilo geral para o corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte principal da página */
+    background-color: white; /* Define uma cor de fundo clara */
+}
+
+/* Estilo do cabeçalho */
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 43px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-image: linear-gradient(45deg, rgb(232, 241, 242), rgb(36,123,160), rgb(0,100, 148), rgb(27,152,224), rgb(19, 41, 61)); /* Gradiente de fundo */
+    color: white; /* Cor do texto no cabeçalho */
+}
+
+/* Define o tamanho da imagem do logo */
+.logo img {
+    width: 120px;
+}
+
+/* Estilo para os links de navegação no cabeçalho */
+nav a {
+    margin: 0 15px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Estilo para a seção de perfil no cabeçalho */
+.perfil-header {
+    display: flex;
+    align-items: center;
+}
+
+/* Ícone circular com as iniciais do usuário */
+.perfil-header span {
+    width: 30px;
+    height: 30px;
+    background-color: #333;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+/* Botão de "Modo de edição" */
+.perfil-header button {
+    background: none;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    color: white;
+}
+
+/* Contêiner principal da página de perfil */
+.perfil-container {
+    display: flex;
+    margin: 20px;
+    gap: 20px;
+}
+
+/* Seção principal do perfil */
+.perfil-principal {
+    flex: 2;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contêiner da foto de perfil */
+.foto-perfil {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Tamanho e formato da imagem de perfil */
+.foto-perfil img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+/* Contêiner para informações secundárias */
+.informacoes-secundarias {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Bloco de informações secundárias */
+.informacoes-secundarias > div {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Links na seção de informações secundárias */
+.informacoes-secundarias a {
+    color: #0056b3;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.btn {
+    background: none; /* Remove o fundo */
+    color: white; /* Define as letras em branco */
+    text-decoration: none; /* Remove o sublinhado */
+    font-size: 1rem; /* Define o tamanho da fonte */
+    border: none; /* Remove bordas */
+    cursor: pointer; /* Mostra o cursor de clique */
+    padding: 5px; /* Ajusta o espaço interno */
+    transition: color 0.3s ease; /* Adiciona um efeito ao passar o mouse */
+}
+
+.btn:hover {
+    color: #ccc; /* Muda a cor ao passar o mouse */
+}

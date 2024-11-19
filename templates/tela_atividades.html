@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Envio de Atividade</title>
+    <!-- Link para o arquivo CSS externo -->
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/tela_atividade.css' )}}" />
+  </head>
+  <body>
+    <!-- Barra de navegação -->
+    <nav class="navbar">
+      <div class="container1">
+        <!-- Logo da página -->
+        <a class="logo" href="{{url_for('home.index')}}">
+          <img src="{{ url_for('static', filename='img/logo_unitec_sem_fundo.png') }}" alt="Logo" />
+        </a>
+        <!-- Links de navegação -->
+        <div class="nav">
+          <ul>
+            <li class="item ativo">
+              <a class="link" href="{{url_for('home.index')}}">Página Inicial</a>
+              <div class="circle-lc">LC</div>
+                <div class="dropdown-menu" id="dropdownMenu">
+                <a href="{{ url_for('aluno.perfil_aluno') }}">Meu Perfil</a>
+              </div>              
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Conteúdo principal da página -->
+    <main class="container">
+      <div class="box-centralizado">
+        <!-- Título da atividade -->
+        <h2 class="titulo-atividade">
+          Atividade 1 - Programação Orientada a Objetos
+        </h2>
+
+        <!-- Caixa de detalhes da atividade -->
+        <div class="box-detalhes">
+          <p><strong>Aberto:</strong> Dia que abriu a atividade</p>
+          <p><strong>Vencimento:</strong> Dia de vencimento da atividade</p>
+          <p><strong>Descrição:</strong> Descrição da atividade</p>
+        </div>
+
+        <!-- Status do envio -->
+        <div class="status-envio">
+          <p>
+            <strong>Status de envio:</strong> Você ainda não enviou esta tarefa.
+          </p>
+        </div>
+
+        <!-- Comentário opcional -->
+        <label for="comentario"><h3>Comentário (opcional):</h3></label>
+        <textarea
+          id="comentario"
+          class="caixa-texto"
+          placeholder="Adicione um comentário sobre a atividade..."
+        ></textarea>
+
+
+<!-- Seção de envio do arquivo -->
+<label for="file-upload"><h3>Envie seu arquivo:</h3></label>
+<div class="btn-container">
+  <label for="file-upload" class="file-button">Selecionar Arquivo</label>
+  <input type="file" id="file-upload" hidden />
+  <span id="file-name">Nenhum arquivo selecionado</span>
+  <button class="btn">Enviar atividade</button>
+</div>
+      </div>
+    </main>
+    <script>
+      // Seleciona a bolinha e o menu
+      const circleLC = document.querySelector('.circle-lc');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+    
+      // Adiciona um evento de clique para alternar a exibição do menu
+      circleLC.addEventListener('click', () => {
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+      });
+    
+      // Fecha o menu clicando fora dele
+      document.addEventListener('click', (event) => {
+        if (!circleLC.contains(event.target) && !dropdownMenu.contains(event.target)) {
+          dropdownMenu.style.display = 'none';
+        }
+      });
+    </script>
+    
+    <script>
+      // Seleciona o input de arquivo e o elemento onde será exibido o nome do arquivo
+      const fileInput = document.getElementById("file-upload");
+      const fileNameSpan = document.getElementById("file-name");
+    
+      // Evento para atualizar o nome do arquivo selecionado
+      fileInput.addEventListener("change", () => {
+        if (fileInput.files.length > 0) {
+          // Exibe o nome do arquivo selecionado
+          fileNameSpan.textContent = fileInput.files[0].name;
+        } else {
+          // Caso nenhum arquivo seja selecionado
+          fileNameSpan.textContent = "Nenhum arquivo selecionado";
+        }
+      });
+    </script>    
+  </body>
+</html>

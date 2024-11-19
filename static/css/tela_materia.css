@@ -1,0 +1,272 @@
+/* Define a aparência geral do corpo da página */
+body {
+    font-family: Arial, sans-serif; /* Define a fonte principal da página */
+    background-color: white; /* Define uma cor de fundo clara */
+    margin: 0; /* Remove as margens padrão da página */
+    padding: 0; /* Remove o preenchimento padrão da página */
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Isso vai centralizar o conteúdo horizontalmente */
+    padding: 1rem;
+    background-image: linear-gradient(45deg, rgb(232, 241, 242), rgb(36,123,160), rgb(0,100, 148), rgb(27,152,224), rgb(19, 41, 61));
+    color: white;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.circle-lc {
+    width: 30px; /* Largura do círculo */
+    height: 30px; /* Altura do círculo */
+    background-color: #333; /* Cor de fundo preta */
+    color: white; /* Cor do texto branco */
+    font-weight: bold; /* Texto em negrito */
+    display: flex; /* Alinha o texto no centro */
+    justify-content: center; /* Alinha horizontalmente */
+    align-items: center; /* Alinha verticalmente */
+    border-radius: 50%; /* Torna a forma redonda */
+    position: fixed; /* Mantém fixo na tela */
+    top: 25px; /* Distância do topo */
+    right: 100px; /* Distância da direita */
+    z-index: 1000; /* Garante que fique acima de outros elementos */
+    cursor: pointer; /* Muda o cursor para uma mãozinha */
+    transition: background-color 0.3s ease; /* Adiciona uma transição suave na cor de fundo */
+}
+.circle-lc:hover {
+    background-color: #494545; /* Muda a cor de fundo ao passar o mouse (ajuste conforme necessário) */
+}
+/* Estiliza o menu suspenso */
+.dropdown-menu {
+    position: absolute;
+    top: 70px; /* Ajuste para alinhar abaixo da bolinha */
+    right: 90px; /* Alinha com a posição da bolinha */
+    background-color: #ffffff; /* Cor de fundo */
+    border: 1px solid #ddd; /* Borda leve */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para destaque */
+    border-radius: 5px; /* Cantos arredondados */
+    display: none; /* Inicialmente oculto */
+    min-width: 150px; /* Define largura mínima */
+    z-index: 999; /* Garante que o menu fique acima de outros elementos */
+}
+
+.dropdown-menu a {
+    color: #333; /* Cor do texto */
+    text-decoration: none; /* Remove sublinhado */
+    padding: 10px 15px; /* Espaçamento interno */
+    display: block; /* Ocupa a largura completa */
+    font-size: 14px; /* Ajuste do tamanho do texto */
+}
+
+.dropdown-menu a:hover {
+    background-color: #f1f1f1; /* Cor de fundo ao passar o mouse */
+}
+
+.logo {
+    position: absolute; /* Para manter a logo à esquerda sem afetar o centralizado */
+    left: 1rem;
+}
+
+.item.ativo {
+    margin-left: auto; /* Para que "Página Inicial" ocupe o espaço central */
+    }
+
+
+.logo img {
+    max-width: 80px;
+    height: auto;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para o cabeçalho da página */
+.header {
+    margin-top: 100px;
+    background-image: linear-gradient(45deg, rgb(19, 41, 61), rgb(0, 100, 148), rgb(36,123,160), rgb(27,152,224), rgb(232,241,242)); /* Adiciona um degradê como fundo */
+    color: white; /* Define a cor do texto como branco */
+    padding: 10px; /* Adiciona preenchimento interno ao cabeçalho */
+    text-align: center; /* Centraliza o texto dentro do cabeçalho */
+}
+
+/* Nova div abaixo do cabeçalho */
+.nova-div {
+    background-image: linear-gradient(45deg, rgb(19, 41, 61), rgb(0, 100, 148), rgb(36,123,160), rgb(27,152,224), rgb(232,241,242)); /* Cor de fundo com degradê */
+    color: white; /* Define a cor do texto como branco */
+    width: 100%; /* A largura da div ocupa toda a tela */
+    height: 65px; /* Define uma altura menor para a div */
+    margin-top: 10px; /* Adiciona uma margem superior para separar do cabeçalho */
+}
+
+/* Estilo para o contêiner principal da página */
+.container {
+    width: 80%; /* Define a largura como 80% da tela */
+    margin: 20px auto; /* Centraliza o contêiner horizontalmente e adiciona margem vertical */
+}
+
+/* Estilo para o título da disciplina */
+.titulo-disciplina {
+    font-size: 24px; /* Define o tamanho da fonte para o título */
+    margin-bottom: 20px; /* Adiciona margem inferior */
+    color: #1841c7; /* Define a cor do texto */
+}
+
+/* Estilo para cada box de item dentro dos tópicos */
+.box-item {
+    background-color: #fff; /* Define o fundo como branco */
+    border-radius: 8px; /* Arredonda os cantos do box */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave ao box */
+    padding: 20px; /* Define o preenchimento interno */
+    margin-bottom: 20px; /* Adiciona uma margem inferior */
+}
+
+/* Estilo para o título dentro de cada box */
+.box-item h3 {
+    margin-top: 0; /* Remove a margem superior */
+    color: #1841c7; /* Define a cor do título */
+}
+
+/* Estilo para links dentro dos boxes */
+.box-item a {
+    display: inline-block; /* Define como elemento em bloco */
+    text-decoration: none; /* Remove o sublinhado do link */
+    color: #007bff; /* Define a cor do link */
+    margin-top: 10px; /* Adiciona uma margem superior */
+    font-size: 16px; /* Define o tamanho da fonte */
+}
+
+/* Estilo para links dentro de <h3> */
+.box-item h1 a,
+.box-item h3 a {
+    display: inline-block;
+    background-image: linear-gradient(45deg, rgb(19, 41, 61), rgb(0, 100, 148), rgb(36,123,160), rgb(27,152,224), rgb(232,241,242)); /* Define um gradiente de fundo */
+    color: white !important; /* Cor do texto branco */
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+/* Efeito ao passar o mouse */
+.box-item h1 a:hover,
+.box-item h3 a:hover {
+    background-image: linear-gradient(45deg, rgb(19, 41, 61), rgb(0, 100, 148), rgb(36,123,160), rgb(27,152,224), rgb(232,241,242)); /* Define um gradiente de fundo */
+}
+
+/* Estilo quando o link for "hovered" (passar o mouse por cima) */
+.box-item a:hover {
+    text-decoration: underline; /* Sublinha o link ao passar o mouse */
+}
+
+/* Estilo para o botão de "Concluído" */
+.btn-concluido {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+/* Estilo do botão quando está concluído */
+.btn-concluido.concluido {
+    background-color: #28a745;
+    color: white;
+    border: none;
+}
+
+/* Estilo para o botão de "Concluído" quando o mouse está sobre ele */
+.btn-concluido:hover {
+    background-color: #218838; /* Muda a cor de fundo ao passar o mouse */
+}
+
+.btn-enviar {
+    background-image: linear-gradient(45deg, rgb(19, 41, 61), rgb(0, 100, 148), rgb(36,123,160), rgb(27,152,224), rgb(232,241,242));
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+.btn-enviar:hover {
+    background-image: linear-gradient(45deg, rgb(27,152,224), rgb(36,123,160), rgb(0,100,148), rgb(19, 41, 61), rgb(232,241,242));
+}
+
+/* Estilo para a caixa de aviso na página */
+.aviso {
+    color: rgb(0, 0, 0); /* Define a cor do texto */
+    padding: 15px; /* Define o preenchimento interno */
+    margin-bottom: 20px; /* Adiciona uma margem inferior */
+    font-size: 16px; /* Define o tamanho da fonte */
+}
+
+/* Estilo para os títulos principais dos tópicos */
+.topico {
+    background-image: linear-gradient(45deg, rgb(19, 41, 61), rgb(0, 100, 148), rgb(36,123,160), rgb(27,152,224), rgb(232,241,242)); /* Define um fundo com degradê */
+    color: white; /* Define a cor do texto como branco */
+    border-radius: 8px; /* Arredonda os cantos */
+    margin-bottom: 20px; /* Adiciona uma margem inferior */
+    cursor: pointer; /* Muda o cursor para indicar que é clicável */
+    padding: 15px; /* Define o preenchimento interno */
+    display: flex; /* Define um layout flexível */
+    align-items: center; /* Alinha os itens ao centro verticalmente */
+    justify-content: flex-start; /* Alinha os itens à esquerda */
+    height: 50px; /* Define uma altura fixa */
+    border: 2px solid black; /* Adiciona uma borda preta */
+}
+
+/* Estilo para os títulos (h2) dentro dos tópicos */
+.topico h2 {
+    margin: 0; /* Remove a margem */
+    padding-left: 10px; /* Adiciona preenchimento à esquerda */
+    font-size: 20px; /* Define o tamanho da fonte */
+}
+
+/* Estilo para a seta dentro dos tópicos */
+.seta {
+    font-size: 18px; /* Define o tamanho da fonte para a seta */
+    margin-right: 10px; /* Adiciona uma margem direita */
+}
+
+/* Estilo para o conteúdo dos tópicos, inicialmente oculto */
+.conteudo-topico {
+    display: none; /* Esconde o conteúdo inicialmente */
+    padding: 15px; /* Define o preenchimento interno */
+    background-color: #fff; /* Define o fundo como branco */
+    border-radius: 8px; /* Arredonda os cantos */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona uma sombra suave */
+}
+
+.nome-arquivo {
+    display: block;
+    margin-top: 10px;
+    font-size: 14px;
+    color: #333;
+    font-style: italic;
+  }

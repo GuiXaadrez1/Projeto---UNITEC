@@ -15,8 +15,10 @@ from routes.login import login_route
 from routes.recuperar_pw import recuperar_pw_route
 from routes.home  import home_route
 from routes.admin import admin_route
-
-
+from routes.materia import materia_route
+from routes.atividade import atividade_route
+from routes.perfil_aluno import perfil_aluno_route
+from routes.postar_atividade import post_atividade_route
 # inicializando flask
 app = Flask(__name__)
 # "mydb: Estabelece a conexão(local) com o banco de dados(local) utilizando a função conf_conexao()."
@@ -35,7 +37,10 @@ app.register_blueprint(login_route, url_prefix = '/login')
 app.register_blueprint(recuperar_pw_route, url_prefix ='/recuperar_senha')
 app.register_blueprint(home_route, url_prefix = '/home')
 app.register_blueprint(admin_route, url_prefix ='/admin')
-
+app.register_blueprint(materia_route, url_prefix = '/')
+app.register_blueprint(atividade_route, url_prefix='/materias')
+app.register_blueprint(perfil_aluno_route, url_prefix ='/perfil_aluno')
+app.register_blueprint(post_atividade_route, url_prefix='/atividades')
 # Ativando o modo desenvolvedor e iniciando o servidor local
 if(__name__ ==  '__main__'):
     app.run(debug = True)

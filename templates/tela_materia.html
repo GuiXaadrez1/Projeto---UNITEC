@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <!-- Define a codificação de caracteres para o documento como UTF-8 -->
+    <meta charset="UTF-8" />
+
+    <!-- Configura a visualização para dispositivos móveis, ajustando o layout de acordo com o tamanho da tela -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Título da página que aparece na aba do navegador -->
+    <title>Disciplina - Materiais e Atividades</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link para o arquivo CSS -->
+
+    <!-- Link para o arquivo CSS -->
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/tela_materia.css')}}" />
+  </head>
+  <body>
+
+    <nav class="navbar">
+      <div class="container1">
+        <!-- Logo da página -->
+        <a class="logo" href="{{url_for('home.index')}}">
+          <img src="{{url_for('static', filename = 'img/logo_unitec_sem_fundo.png')}}" alt="Logo" />
+        </a>
+        <!-- Links de navegação -->
+        <div class="nav">
+          <ul>
+            <li class="item ativo">
+              <a class="link" href="{{url_for('home.index')}}">Página Inicial</a>
+              <div class="circle-lc">LC</div>
+                <div class="dropdown-menu" id="dropdownMenu">
+                <a href="{{ url_for('aluno.perfil_aluno') }}">Meu Perfil</a>
+              </div>
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <!-- Cabeçalho com título principal -->
+    <div class="header">
+      <h1 style="font-weight: 800">UNITEC - Nome da disciplina</h1>
+      <!-- Título em negrito -->
+    </div>
+
+    <div class="nova-div">
+      <h2 style="font-size: 23px">
+        Seja bem-vindo à disciplina. As aulas e atividades estão disponíveis
+        abaixo.
+      </h2>
+    </div>
+
+    <!-- Contêiner principal que centraliza o conteúdo -->
+    <div class="container">
+      <p style="font-size: 35px" class="titulo-disciplina"></p>
+
+      <!-- Seção de detalhes da matéria -->
+      <div class="topico" onclick="toggleConteudo(this)">
+        <span class="seta">▼</span>
+        <h2>Detalhes da Matéria</h2>
+      </div>
+<!-- Seção de detalhes da matéria -->
+<div class="conteudo-topico">
+  <div class="box-item">
+    <h3><a href="planejamento_poo_2024.html">Planejamento POO 2024</a></h3>
+    <a href="planejamento_poo_2024.pdf" download>Baixar arquivo</a>
+    <button class="btn-concluido" onclick="toggleConcluido(this)">Marcar como Concluído</button>
+  </div>
+  <div class="box-item">
+    <h3><a href="ementa_disciplina_poo_2024.html">Ementa da Disciplina POO 2024</a></h3>
+    <a href="ementa_poo_2024.pdf" download>Baixar arquivo</a>
+    <button class="btn-concluido" onclick="toggleConcluido(this)">Marcar como Concluído</button>
+  </div>
+</div>
+      
+
+      <!-- Seção de material de estudo -->
+      <div class="topico" onclick="toggleConteudo(this)">
+        <span class="seta">▼</span>
+        <h2>Material de Estudo</h2>
+      </div>
+      <div class="conteudo-topico">
+        <div class="box-item">
+          <h3><a href="documento_aula_1.html">Documento Aula 1</a></h3>
+          <a href="documento_aula_1.pdf" download>Baixar arquivo</a>
+          <button class="btn-concluido" onclick="toggleConcluido(this)">Marcar como Concluído</button>
+        </div>
+        <div class="box-item">
+          <h3><a href="documento_aula_2.html">Documento Aula 2</a></h3>
+          <a href="documento_aula_2.pdf" download>Baixar arquivo</a>
+          <button class="btn-concluido" onclick="toggleConcluido(this)">Marcar como Concluído</button>
+        </div>
+      </div>
+      
+
+      <!-- Seção de atividades -->
+      <div class="topico" onclick="toggleConteudo(this)">
+        <span class="seta">▼</span>
+        <h2>Atividades</h2>
+      </div>
+      <div class="conteudo-topico">
+        <div class="box-item">
+          <h3><a href="C:/Users/Leandro/Desktop/UNITEC/templates/tela_atividades.html">Atividade 1 - Programação em Java</a></h3>
+          <form id="form-atividade-1" enctype="multipart/form-data">
+            <!-- Campo para selecionar arquivo -->
+            <input type="file" id="file-atividade-1" name="file" style="display: none;" accept=".pdf,.doc,.docx,.txt" />
+            <button type="button" class="btn-enviar" onclick="abrirExplorador('file-atividade-1')">Selecionar arquivo</button>
+            <!-- Nome do arquivo selecionado -->
+            <span id="nome-arquivo-1" class="nome-arquivo">Nenhum arquivo selecionado</span>
+            <!-- Botão para enviar o arquivo -->
+            <button type="submit" class="btn-enviar">Enviar atividade</button>
+            <!-- Botão "Marcar como Concluído" -->
+            <button class="btn-concluido" onclick="toggleConcluido(this)">Marcar como Concluído</button>
+          </form>
+        </div>
+        <div class="box-item">
+          <h3><a href="{{url_for('atividades.tela_atividades')}}">Atividade 2 - Herança e Polimorfismo</a></h3>
+          <form id="form-atividade-2" enctype="multipart/form-data">
+            <!-- Campo para selecionar arquivo -->
+            <input type="file" id="file-atividade-2" name="file" style="display: none;" accept=".pdf,.doc,.docx,.txt" />
+            <button type="button" class="btn-enviar" onclick="abrirExplorador('file-atividade-2')">Selecionar arquivo</button>
+            <!-- Nome do arquivo selecionado -->
+            <span id="nome-arquivo-2" class="nome-arquivo">Nenhum arquivo selecionado</span>
+            <!-- Botão para enviar o arquivo -->
+            <button type="submit" class="btn-enviar">Enviar atividade</button>
+            <!-- Botão "Marcar como Concluído" -->
+            <button class="btn-concluido" onclick="toggleConcluido(this)">Marcar como Concluído</button>
+          </form>
+        </div>
+      </div>
+
+    <!-- Script JavaScript para alternar o conteúdo dos tópicos e o modo de edição -->
+    <script>
+      function toggleConteudo(element) {
+        var conteudo = element.nextElementSibling
+        var seta = element.querySelector('.seta')
+
+        if (conteudo.style.display === 'block') {
+          conteudo.style.display = 'none'
+          seta.textContent = '▼'
+        } else {
+          conteudo.style.display = 'block'
+          seta.textContent = '▲'
+        }
+      }
+    </script>
+    <script>
+      // Seleciona a bolinha e o menu
+      const circleLC = document.querySelector('.circle-lc');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+    
+      // Adiciona um evento de clique para alternar a exibição do menu
+      circleLC.addEventListener('click', () => {
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+      });
+    
+      // Fecha o menu clicando fora dele
+      document.addEventListener('click', (event) => {
+        if (!circleLC.contains(event.target) && !dropdownMenu.contains(event.target)) {
+          dropdownMenu.style.display = 'none';
+        }
+      });
+
+      function toggleConcluido(button) {
+  // Verifica se o botão já está marcado como concluído
+  if (button.classList.contains('concluido')) {
+    // Reverte para o estado inicial
+    button.classList.remove('concluido');
+    button.textContent = 'Marcar como Concluído';
+  } else {
+    // Marca como concluído
+    button.classList.add('concluido');
+    button.textContent = 'Concluído';
+  }
+}
+
+function abrirExplorador(idInput) {
+    document.getElementById(idInput).click();
+  }
+
+  // Atualizar o nome do arquivo selecionado
+  document.getElementById('file-atividade-1').addEventListener('change', function () {
+    const fileName = this.files[0] ? this.files[0].name : 'Nenhum arquivo selecionado';
+    document.getElementById('nome-arquivo-1').textContent = fileName;
+  });
+
+  document.getElementById('file-atividade-2').addEventListener('change', function () {
+    const fileName = this.files[0] ? this.files[0].name : 'Nenhum arquivo selecionado';
+    document.getElementById('nome-arquivo-2').textContent = fileName;
+  });
+
+  function toggleConcluido(button) {
+    if (button.classList.contains('concluido')) {
+      button.classList.remove('concluido');
+      button.textContent = 'Marcar como Concluído';
+    } else {
+      button.classList.add('concluido');
+      button.textContent = 'Concluído';
+    }
+  }
+    </script>  
+
+    <!-- Adicione este script -->
+  <script>
+    // Selecionando os elementos
+    const fileInput = document.getElementById("fileInput");
+    const preview = document.getElementById("preview");
+
+    // Adicionando o evento para capturar alterações no input
+    fileInput.addEventListener("change", () => {
+      const file = fileInput.files[0]; // Obtém o arquivo selecionado
+
+      if (!file) {
+        preview.innerHTML = "<p>Nenhum arquivo selecionado.</p>";
+        return;
+      }
+
+      const reader = new FileReader(); // Cria o FileReader para ler o arquivo
+
+      // Função que é executada quando o arquivo é carregado
+      reader.onload = (e) => {
+        const fileType = file.type; // Obtém o tipo do arquivo
+
+        if (fileType.startsWith("image/")) {
+          // Caso seja uma imagem
+          preview.innerHTML = `<img src="${e.target.result}" alt="Pré-visualização da imagem">`;
+        } else if (fileType === "application/pdf") {
+          // Caso seja um PDF
+          preview.innerHTML = `<embed src="${e.target.result}" type="application/pdf" width="100%" height="500px">`;
+        } else if (fileType.startsWith("text/")) {
+          // Caso seja um arquivo de texto
+          preview.innerHTML = `<pre>${e.target.result}</pre>`;
+        } else {
+          // Arquivo não suportado
+          preview.innerHTML = `<p>Tipo de arquivo não suportado.</p>`;
+        }
+      };
+
+      // Lê o arquivo no formato apropriado
+      if (file.type.startsWith("text/")) {
+        reader.readAsText(file); // Para arquivos de texto
+      } else {
+        reader.readAsDataURL(file); // Para imagens e PDFs
+      }
+    });
+  </script>
+
+  </body>
+</html>

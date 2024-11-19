@@ -1,74 +1,127 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meus Cursos</title>  
-    <link rel="stylesheet" href="{{ url_for('static', filename = 'css/home.css') }}">
-</head>
-<body>
-    <h1>Olá, Aluno!</h1>
-    <br>
-    <span class="blue-text">Seja bem vindo(a) ao </span>
-    <span class="yellow-text">Ava Unitec</span>
-    <br> <br> <br> <br> <br> <br> <br> <br>
-    <h3>Meus Cursos</h3>
-    <div class="container"> 
-        <div class="course-card">
-            <!--tamanho das imagens 300 x 150-->
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuCbx8yJ_OTPJxGiJ4ZZbCwxqgD0-bn5vgGQ&s" alt="Matéria 1">
-            <div class="course-content">
-                <h3><a href="#">Matéria 1</a></h3>
-                <div class="progress">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Meus Cursos</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+  </head>
+  <body>
+    <div class="header">
+      <h1 style="font-weight: 800">Seja Bem-vindo ao Portal do aluno</h1>
+      <nav class="navbar">
+        <div class="container1">
+          <a class="logo" href="{{ url_for('home.index') }}">
+            <img src="{{ url_for('static', filename='img/logo_unitec_sem_fundo.png') }}" alt="Logo" />
+          </a>
+          <div class="nav">
+            <ul>
+              <li class="item ativo">
+                <a class="link" href="{{ url_for('home.index') }}">Página Inicial</a>
+                <div class="circle-lc">LC</div>
+                <div class="dropdown-menu" id="dropdownMenu">
+                  <a href="{{ url_for('aluno.perfil_aluno') }}">Meu Perfil</a>
                 </div>
-            </div>
+              </li>
+            </ul>
+          </div>
         </div>
-
-        <div class="course-card">
-            <img src= "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSahsZw-z4bOcMcC7IppifFEc_DdiEW9U4v9w&s" alt="Mtéria 2">
-            <div class="course-content">
-                <h3><a href="#">Matéria 2</a></h3>
-                <div class="progress">
-                </div>
-            </div>
-        </div>
-
-        <div class="course-card">
-            <img src="https://emaudioconcursos.com.br/wp-content/uploads/2023/08/Mulher-estudando-por-video-aula-300x150.jpg" alt="Matéria 3">
-            <div class="course-content">
-                <h3><a href="#">Matéria 3</a></h3>
-                <div class="progress">
-                </div>
-            </div>
-        </div>
-
-        <div class="course-card">
-            <img src="https://emaudioconcursos.com.br/wp-content/uploads/2023/08/Homem-estudando-e-fazendo-anotacoes-2-300x150.jpg" alt="Matéria 4">
-            <div class="course-content">
-                <h3><a href="#">Matéria 4</a></h3>
-                <div class="progress">
-                </div>
-            </div>
-        </div>
-
-        <div class="course-card">
-            <img src="https://emaudioconcursos.com.br/wp-content/uploads/2023/03/Como-Estudar-para-o-Concurso-PC-DF-300x150.jpg" alt="Matéria 5">
-            <div class="course-content">
-                <h3><a href="#">Matéria 5</a></h3>
-                <div class="progress">
-                </div>
-            </div>
-        </div>
-
-        <div class="course-card">
-            <img src="https://emaudioconcursos.com.br/wp-content/uploads/2023/07/COMO-ESTUDAR-PARA-O-CONCURSO-UFRB-300x150.jpg" alt="Matéria 6">
-            <div class="course-content">
-                <h3><a href="#">Matéria 6</a></h3>
-                <div class="progress">
-                </div>
-            </div>
-        </div>
+      </nav>
     </div>
-    <script src= "{{ url_for('static', filename = 'js/cru.js') }}"></script>
-</body>
+
+    <div class="nova-div">
+      <h2 style="font-size: 23px">
+        Encontre as disciplinas que você está cursando abaixo:
+      </h2>
+    </div>
+
+    <div class="container">
+      <!-- Curso 1 -->
+      <div class="course-card">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuCbx8yJ_OTPJxGiJ4ZZbCwxqgD0-bn5vgGQ&s"
+          alt="Matéria 1"
+        />
+        <div class="course-content">
+          <h3><a href="{{ url_for('materia.materias') }}">Matéria 1</a></h3>
+          <div class="progress"></div>
+        </div>
+      </div>
+
+      <!-- Curso 2 -->
+      <div class="course-card">
+        <img
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSahsZw-z4bOcMcC7IppifFEc_DdiEW9U4v9w&s"
+          alt="Matéria 2"
+        />
+        <div class="course-content">
+          <h3><a href="{{ url_for('materia.materias') }}">Matéria 2</a></h3>
+          <div class="progress"></div>
+        </div>
+      </div>
+
+      <!-- Curso 3 -->
+      <div class="course-card">
+        <img
+          src="https://emaudioconcursos.com.br/wp-content/uploads/2023/08/Mulher-estudando-por-video-aula-300x150.jpg"
+          alt="Matéria 3"
+        />
+        <div class="course-content">
+          <h3><a href="{{ url_for('materia.materias') }}">Matéria 3</a></h3>
+          <div class="progress"></div>
+        </div>
+      </div>
+
+      <!-- Curso 4 -->
+      <div class="course-card">
+        <img
+          src="https://emaudioconcursos.com.br/wp-content/uploads/2023/08/Homem-estudando-e-fazendo-anotacoes-2-300x150.jpg"
+          alt="Matéria 4"
+        />
+        <div class="course-content">
+          <h3><a href="{{ url_for('materia.materias') }}">Matéria 4</a></h3>
+          <div class="progress"></div>
+        </div>
+      </div>
+
+      <!-- Curso 5 -->
+      <div class="course-card">
+        <img
+          src="https://emaudioconcursos.com.br/wp-content/uploads/2023/03/Como-Estudar-para-o-Concurso-PC-DF-300x150.jpg"
+          alt="Matéria 5"
+        />
+        <div class="course-content">
+          <h3><a href="{{ url_for('materia.materias') }}">Matéria 5</a></h3>
+          <div class="progress"></div>
+        </div>
+      </div>
+
+      <!-- Curso 6 -->
+      <div class="course-card">
+        <img
+          src="https://emaudioconcursos.com.br/wp-content/uploads/2023/07/COMO-ESTUDAR-PARA-O-CONCURSO-UFRB-300x150.jpg"
+          alt="Matéria 6"
+        />
+        <div class="course-content">
+          <h3><a href="{{ url_for('materia.materias') }}">Matéria 6</a></h3>
+          <div class="progress"></div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const circleLC = document.querySelector('.circle-lc');
+      const dropdownMenu = document.getElementById('dropdownMenu');
+    
+      circleLC.addEventListener('click', () => {
+        dropdownMenu.style.display = dropdownMenu.style.display === 'block' ? 'none' : 'block';
+      });
+    
+      document.addEventListener('click', (event) => {
+        if (!circleLC.contains(event.target) && !dropdownMenu.contains(event.target)) {
+          dropdownMenu.style.display = 'none';
+        }
+      });
+    </script>
+  </body>
 </html>
