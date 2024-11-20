@@ -5,24 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Envio de Atividade</title>
     <!-- Link para o arquivo CSS externo -->
-    <link rel="stylesheet" href="..\static/tela_atividade.css" />
+    <link rel="stylesheet" href="{{url_for('static', filename = 'css/tela_atividade.css' )}}" />
   </head>
   <body>
     <!-- Barra de navegação -->
     <nav class="navbar">
       <div class="container1">
         <!-- Logo da página -->
-        <a class="logo" href="home.html">
-          <img src="..\assets\logo_unitec_sem_fundo.png" alt="Logo" />
+        <a class="logo" href="{{url_for('home.index')}}">
+          <img src="{{ url_for('static', filename='img/logo_unitec_sem_fundo.png') }}" alt="Logo" />
         </a>
         <!-- Links de navegação -->
         <div class="nav">
           <ul>
             <li class="item ativo">
-              <a class="link" href="home.html">Página Inicial</a>
+              <a class="link" href="{{url_for('home.index')}}">Página Inicial</a>
               <div class="circle-lc">LC</div>
                 <div class="dropdown-menu" id="dropdownMenu">
-                <a href="C:\Users\Leandro\Desktop\UNITEC\templates\perfil_aluno.html">Meu Perfil</a>
+                <a href="{{ url_for('aluno.perfil_aluno') }}">Meu Perfil</a>
               </div>              
             </li>
           </ul>

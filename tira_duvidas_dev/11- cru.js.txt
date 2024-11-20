@@ -1,2 +1,0 @@
-Sobre isso, recomendo dar uma lida na dosumentação que esta meste link de github:
-    Cru.js: https://bit.ly/crujsdoc
