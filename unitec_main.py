@@ -1,12 +1,12 @@
 # importando módulos flask, suas bibliotecas e nossos módulos
-from flask import Flask
+from flask import Flask, flash
 ''' 
 request: é utilizado para obter dados de requisições HTTP (como formulários e parâmetros).
 BD: módulo que criei para o nosso banco de dados
 '''
 from flask import render_template, request, jsonify
 
-from BD.database import conf_conexao
+from BD.database import conf_conexao, inserir_pessoa
 
 # Importando diretamente na pasta routes as variáveis que comportam as blueprints!
 from routes.raiz import raiz_route
@@ -23,7 +23,8 @@ from routes.perfil_professor import perfil_professor_route
 app = Flask(__name__)
 # "mydb: Estabelece a conexão(local) com o banco de dados(local) utilizando a função conf_conexao()."
 mydb = conf_conexao()
-
+# Secrete Key
+app.secret_key = 'beababebi'
 # @ é um decorador que define as rotas (caminhos na URL) da aplicação.
 '''
 @app.route('/')
